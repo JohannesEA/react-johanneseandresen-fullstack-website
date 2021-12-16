@@ -10,7 +10,7 @@
   },
   "scripts": {
     "heroku-postbuild": "npm run start",
-    "start": "node ./server.js"
+    "start": "npm install && node ./server.js"
   
   },
   "keywords": [],
