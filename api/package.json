@@ -3,13 +3,22 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+
+  "engines": {
+    "node": "14.17.5",
+    "npm": "8.1.2"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "heroku-postbuild": "npm run start",
+    "start": "node ./server.js"
+  
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "expressjs": "^1.0.1"
   }
 }
