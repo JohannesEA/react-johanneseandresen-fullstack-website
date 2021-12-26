@@ -1,8 +1,17 @@
 import styled from "styled-components";
+import {Link} from "react-scroll";
 const Footer = () => {
     return (
         <Container>
-            <Top><Image src="/assets/logos/logo1.png" alt="footer-img"/></Top>
+            <Top>
+            <Link
+              to="contact"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={300}
+            >                <Image src="/assets/logos/logo1.png" alt="footer-img"/> </Link></Top>
+           
             <Bottom>Copyright johanneseandresen.no</Bottom>
         </Container>
     )
