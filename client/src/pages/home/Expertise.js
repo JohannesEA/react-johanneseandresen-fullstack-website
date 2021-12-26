@@ -11,7 +11,7 @@ const Expertise = () => {
     if (width > 400 && window.scrollY >= 790) {
       setActivateAnimationOne(true);
     } 
-    else if (width <= 400 && window.scrollY >= 1020) {
+    else if (width <= 400 && window.scrollY >= 1000) {
       setActivateAnimationOne(true);
     } 
     

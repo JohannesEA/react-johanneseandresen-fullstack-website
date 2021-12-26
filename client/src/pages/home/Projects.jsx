@@ -11,7 +11,7 @@ const Projects = () => {
   return (
 <Container>
 
-  <Title data-aos="fade-up">Mine Prosjekter</Title>
+  <Title data-aos="fade-up">Prosjekter</Title>
 
 <ImageContainer id="projects" data-aos="fade-up">
         <ImageSlider images={IMAGES} slidesToShow={5} />
