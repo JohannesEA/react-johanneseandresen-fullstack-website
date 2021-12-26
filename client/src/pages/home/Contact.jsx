@@ -135,9 +135,7 @@ const ContactForm = styled.form`
   background-color: #fff;
   box-shadow: 0px 0px 4px 2px #e1f5ff;
   width: 80%;
-  @media (max-width: 800px) {
-    width: 90%;
-  }
+
 `;
 
 // const Label = styled.label`
