@@ -13,7 +13,7 @@ const Expertise = () => {
       setActivateAnimationOne(true);
       console.log(window.scrollY)
     } 
-    else if (width <= 400 && window.scrollY >= 1060) {
+    else if (width <= 400 && window.scrollY >= 1080) {
       setActivateAnimationOne(true);
       console.log(window.scrollY)
     } 
@@ -175,7 +175,7 @@ const AnimationTwo = styled.div`
 const FillContent = styled.div`
   height: 100%;
   animation-name: ${fill};
-  animation-duration: 1s;
+  animation-duration: 1.5s;
   animation-fill-mode: forwards;
   width: 0%;
   display: flex;
