@@ -38,29 +38,29 @@ const Expertise = () => {
         </AnimationTwo>
         <AnimationTwo w="80%">
           <TextContainer>
+            <Text>Java</Text>
+          </TextContainer>{" "}
+          {activateAnimationOne && <FillContent>Spring</FillContent>}{" "}
+        </AnimationTwo>
+        <AnimationTwo w="80%">
+          <TextContainer>
+            <Text>C#</Text>
+          </TextContainer>{" "}
+          {activateAnimationOne && <FillContent>.NET</FillContent>}{" "}
+        </AnimationTwo>
+        <AnimationTwo w="70%">
+          <TextContainer>
             <Text>Html</Text>
           </TextContainer>
           {activateAnimationOne && <FillContent></FillContent>}{" "}
         </AnimationTwo>
-        <AnimationTwo w="80%">
+        <AnimationTwo w="70%">
           <TextContainer>
             <Text>Css</Text>
           </TextContainer>{" "}
           {activateAnimationOne && <FillContent></FillContent>}{" "}
         </AnimationTwo>
         <AnimationTwo w="60%">
-          <TextContainer>
-            <Text>Java</Text>
-          </TextContainer>{" "}
-          {activateAnimationOne && <FillContent>Spring</FillContent>}{" "}
-        </AnimationTwo>
-        <AnimationTwo w="60%">
-          <TextContainer>
-            <Text>C#</Text>
-          </TextContainer>{" "}
-          {activateAnimationOne && <FillContent>.NET</FillContent>}{" "}
-        </AnimationTwo>
-        <AnimationTwo w="50%">
           <TextContainer>
             <Text>Flutter</Text>
           </TextContainer>{" "}
