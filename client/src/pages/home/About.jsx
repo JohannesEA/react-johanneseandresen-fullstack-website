@@ -2,15 +2,19 @@ import styled, { keyframes } from "styled-components";
 import Button from "../../components/Button";
 import getWindowDimensions from "../../commonFunctions/Dimentions";
 
-const Hero = () => {
+const About = () => {
   const { width } = getWindowDimensions();
 
   return (
     <Container>
 
-      {width > 800 &&       <Left>
-        <Title>Johannes Erdahl Andresen</Title>
+     <Top>
+        {/* <Title>Johannes Erdahl Andresen</Title> */}
         {/* <Logo src="/assets/logos/logo3.png" alt="hero-logo"/> */}
+
+
+        <Image src="/assets/images/johannes.png" alt="johannes-hero-img" />
+
         <Text>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -30,40 +34,25 @@ const Hero = () => {
             onClick={() => console.log("Last ned CV")}
           ></Button>
         </ButtonContainer>
-      </Left>}
+      </Top>
 
-      {width > 800 && (
-        <Right>
-          <Image src="/assets/images/johannes.png" alt="johannes-hero-img" />
-        </Right>
-      )}
+
     </Container>
   );
 };
 
-export default Hero;
+export default About;
 
 const Container = styled.div`
-  display: grid;
-  grid-template-columns: 3fr 3fr ;
-  min-height: 50vh;
-  max-height: 80vh;
-  padding: 1em;
+padding: 0 1em;
   transition: all .3s ease;
-
-  @media (max-width: 800px) {
-    min-height: 40vh;
-    background: url("/assets/logos/logo1.png") no-repeat center;
-    background-size: cover;
-    padding: 0px;
-
-  }
 `;
 
-const Left = styled.div`
-  display: grid;
-  padding-top: 8em;
-  grid-template-rows: 1fr 1fr .5fr;
+const Top = styled.div`
+display: flex;
+align-items: center;
+flex-direction: column;
+text-align: center;
 `;
 
 
@@ -72,7 +61,7 @@ display: flex;
 align-items: flex-start;
 justify-content: space-between;
 height: auto;
-max-width: 15em;
+min-width: 15em;
 `;
 
 const Logo = styled.img`
@@ -104,12 +93,13 @@ const Text = styled.p`
   }
 `;
 
-const Right = styled.div`
+const Bottom = styled.div`
   text-align: center;
 
 `;
 
 const Image = styled.img`
-  max-height: 80vh;
-margin-bottom: 2.5em;
+  min-height: 50vh;
+  max-height: 60vh;
+
 `;

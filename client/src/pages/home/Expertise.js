@@ -4,23 +4,12 @@ import { useState, useEffect } from "react";
 const Expertise = () => {
   const [fill, setFill] = useState(false);
   const [activateAnimationOne, setActivateAnimationOne] = useState(false);
-  const [activateAnimationTwo, setActivateAnimationTwo] = useState(false);
-  const [activateAnimationThree, setActivateAnimationThree] = useState(false);
 
   const activateAnimations = () => {
-    if (window.scrollY >= 40) {
+    if (window.scrollY >= 790) {
       setActivateAnimationOne(true);
-    }  if (window.scrollY >= 250) {
-      setActivateAnimationOne(true);
-      setActivateAnimationTwo(true);
-    }  if (window.scrollY >= 500) {
-      setActivateAnimationOne(true);
-      setActivateAnimationTwo(true);
-      setActivateAnimationThree(true);
     } else {
       setActivateAnimationOne(false);
-      setActivateAnimationTwo(false);
-      setActivateAnimationThree(false);
     }
   };
 
@@ -28,18 +17,40 @@ const Expertise = () => {
 
   return (
     <Container>
-      {/* <Animation></Animation> */}
-      <AnimationTwo>
-        {(activateAnimationOne || fill) && <FillContent></FillContent>}{" "}
-      </AnimationTwo>
-      <AnimationTwo>
-        {(activateAnimationTwo || fill) && <FillContent></FillContent>}{" "}
-      </AnimationTwo>
-      <AnimationTwo>
-        {(activateAnimationThree || fill) && <FillContent></FillContent>}{" "}
-      </AnimationTwo>
+      {/* <Animation ></Animation> */}
 
-      <Button onClick={() => setFill(!fill)}>Click</Button>
+      <AnimationBox>
+        <AnimationTwo w="80%">
+          <TextContainer>
+            <Text>Html</Text>
+          </TextContainer>
+          {activateAnimationOne && <FillContent></FillContent>}{" "}
+        </AnimationTwo>
+        <AnimationTwo w="70%">
+          <TextContainer>
+            <Text>Css</Text>
+          </TextContainer>{" "}
+          {activateAnimationOne && <FillContent></FillContent>}{" "}
+        </AnimationTwo>
+        <AnimationTwo w="90%">
+          <TextContainer>
+            <Text>Javascript</Text>
+          </TextContainer>{" "}
+          {activateAnimationOne && <FillContent></FillContent>}{" "}
+        </AnimationTwo>
+        <AnimationTwo w="60%">
+          <TextContainer>
+            <Text>Java</Text>
+          </TextContainer>{" "}
+          {activateAnimationOne && <FillContent></FillContent>}{" "}
+        </AnimationTwo>
+        <AnimationTwo w="60%">
+          <TextContainer>
+            <Text>C++</Text>
+          </TextContainer>{" "}
+          {activateAnimationOne && <FillContent></FillContent>}{" "}
+        </AnimationTwo>
+      </AnimationBox>
     </Container>
   );
 };
@@ -48,7 +59,6 @@ export default Expertise;
 
 const Container = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
   flex-direction: column;
   min-height: 80vh;
@@ -66,57 +76,10 @@ const rotate = keyframes`
 const fill = keyframes`
         0%{
             width: 0%;
-            background-color: #f06060;
-
-        }
-        10%{
-            background-color: #f06060;
-
-            width: 10%;
-        }
-        20%{
-            background-color: #f06060;
-
-            width: 20%;
-        }
-        30%{
-            background-color: #f06060;
-
-            width: 30%;
-        }
-        40%{
-            background-color: #f06060;
-
-            width: 40%;
-        }
-        50%{
-            background-color: #f06060;
-
-            width: 50%;
-        }
-        60%{
-            background-color: #f06060;
-
-            width: 60%;
-        }
-        70%{
-            background-color: #f06060;
-
-            width: 70%;
-        }
-        80%{
-            background-color: #f06060;
-
-            width: 80%;
-        }
-        90%{
-            background-color: #f06060;
-
-            width: 90%;
+            background-color: #032859;
         }
         100%{
-            background-color: #f06060;
-
+            background-color: #032859;
             width: 100%;
         }        
         
@@ -159,10 +122,23 @@ const Animation = styled.div`
   }
 `;
 
+const AnimationBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+`;
+
+
+
 const AnimationTwo = styled.div`
-  width: 200px;
-  height: 50px;
-  background-color: #928d8d;
+  display: flex;
+  flex-direction: row;
+  align-self: start;
+  width: ${(prop) => prop.w};
+  align-items: center;
+  margin: 1em auto auto 1em;
+  height: 30px;
   transition: all 2s;
 `;
 
@@ -171,7 +147,6 @@ const FillContent = styled.div`
   animation-name: ${fill};
   animation-duration: 1s;
   animation-fill-mode: forwards;
-  animation-delay: 1s;
   width: 0%;
 `;
 
@@ -179,4 +154,12 @@ const Button = styled.button`
   height: 50px;
   width: 50px;
   background-color: orange;
+`;
+
+const TextContainer = styled.div`
+
+`;
+const Text = styled.p`
+  width: 5em;
+  font-size: 1.5rem;
 `;
