@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { Spiral as Hamburger } from "hamburger-react";
 import getWindowDimensions from "../commonFunctions/Dimentions";
 import { useState } from "react";
@@ -34,11 +34,15 @@ const Navbar = () => {
           </Link>
      {  width < 800 &&   <Link to="about" spy={true} smooth={true} offset={-100} duration={300}>
             {" "}
-            <Menulink onClick={() => setOpen(!isOpen)}>Om Meg</Menulink>
+            <Menulink onClick={() => setOpen(!isOpen)}>Om</Menulink>
           </Link>}
           <Link to="education" spy={true} smooth={true} offset={-100} duration={300}>
             {" "}
             <Menulink onClick={() => setOpen(!isOpen)}>Utdannelse</Menulink>
+          </Link>
+          <Link to="expertice" spy={true} smooth={true} offset={-100} duration={300}>
+            {" "}
+            <Menulink onClick={() => setOpen(!isOpen)}>Ferdigheter</Menulink>
           </Link>
           <Link to="projects" spy={true} smooth={true} offset={-100} duration={300}>
             {" "}
@@ -46,7 +50,7 @@ const Navbar = () => {
           </Link>
           <Link to="contact" spy={true} smooth={true} offset={-100} duration={300}>
             {" "}
-            <Menulink onClick={() => setOpen(!isOpen)}>Kontakt Meg</Menulink>{" "}
+            <Menulink onClick={() => setOpen(!isOpen)}>Kontakt</Menulink>{" "}
           </Link>
         </Menu>
       )}
@@ -56,23 +60,23 @@ const Navbar = () => {
 
 export default Navbar;
 
-const navanimation = keyframes`
-0%{
-right: -100%;
-opacity: 0;
-}
+// const navanimation = keyframes`
+// 0%{
+// right: -100%;
+// opacity: 0;
+// }
 
-50%{
-    right: -50%;
-    opacity: .5;
+// 50%{
+//     right: -50%;
+//     opacity: .5;
 
-}
-100%{
-    right: 0%;
-    opacity: 1;
+// }
+// 100%{
+//     right: 0%;
+//     opacity: 1;
 
-}
-`;
+// }
+// `;
 
 const Container = styled.div`
   display: flex;
@@ -90,11 +94,11 @@ const Container = styled.div`
   } */
 `;
 
-const Logo = styled.img`
-  max-height: 5em;
-  justify-self: start;
-  margin-left: 20px;
-`;
+// const Logo = styled.img`
+//   max-height: 5em;
+//   justify-self: start;
+//   margin-left: 20px;
+// `;
 
 const Menu = styled.div`
   display: flex;

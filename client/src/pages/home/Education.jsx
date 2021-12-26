@@ -1,9 +1,9 @@
-import styled, { keyframes } from "styled-components";
-import Button from "../../components/Button";
-import getWindowDimensions from "../../commonFunctions/Dimentions";
+import styled from "styled-components";
+// import Button from "../../components/Button";
+// import getWindowDimensions from "../../commonFunctions/Dimentions";
 
 const Education = () => {
-  const { width } = getWindowDimensions();
+  // const { width } = getWindowDimensions();
 
 
 

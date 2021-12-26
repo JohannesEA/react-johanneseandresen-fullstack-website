@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import Button from "../../components/Button";
 import getWindowDimensions from "../../commonFunctions/Dimentions";
 import { Link } from "react-scroll";
@@ -6,9 +6,9 @@ import { Link } from "react-scroll";
 const Hero = () => {
   const { width } = getWindowDimensions();
 
-  const handleDownloadResumme = () => {
-    alert("Download");
-  };
+  // const handleDownloadResumme = () => {
+  //   alert("Download");
+  // };
 
   return (
     <Container id="hero">
@@ -61,8 +61,9 @@ const Container = styled.div`
   transition: all 0.3s ease;
 
   @media (max-width: 800px) {
-    min-height: 40vh;
-    background: url("/assets/logos/logo1.png") no-repeat center;
+    max-height: 30vh;
+    min-height: 28vh;
+    background: url("/assets/logos/logo3.png") no-repeat center;
     background-size: cover;
     padding: 0px;
   }
@@ -82,10 +83,10 @@ const ButtonContainer = styled.div`
   max-width: 15em;
 `;
 
-const Logo = styled.img`
-  max-height: 20em;
-  min-width: 30em;
-`;
+// const Logo = styled.img`
+//   max-height: 20em;
+//   min-width: 30em;
+// `;
 
 const Title = styled.h1`
   font-size: 2.3rem;
@@ -141,11 +142,11 @@ const DownloadButton = styled.a`
   }
 `;
 
-{
-  /* <a
-href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
-download
->
-Click to download
-</a> */
-}
+// {
+//   /* <a
+// href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+// download
+// >
+// Click to download
+// </a> */
+// }

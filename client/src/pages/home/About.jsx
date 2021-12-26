@@ -1,10 +1,10 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import Button from "../../components/Button";
-import getWindowDimensions from "../../commonFunctions/Dimentions";
+// import getWindowDimensions from "../../commonFunctions/Dimentions";
 import {Link} from "react-scroll";
 
 const About = () => {
-  const { width } = getWindowDimensions();
+  // const { width } = getWindowDimensions();
 
   return (
     <Container id="about" >
@@ -70,10 +70,10 @@ height: auto;
 min-width: 15em;
 `;
 
-const Logo = styled.img`
-max-height: 20em;
-min-width: 30em;
-`;
+// const Logo = styled.img`
+// max-height: 20em;
+// min-width: 30em;
+// `;
 
 
 
@@ -135,11 +135,11 @@ const DownloadButton = styled.a`
   }
 `;
 
-{
-  /* <a
-href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
-download
->
-Click to download
-</a> */
-}
+// {
+//   /* <a
+// href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+// download
+// >
+// Click to download
+// </a> */
+// }

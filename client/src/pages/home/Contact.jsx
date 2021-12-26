@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 import Button from "../../components/Button";
-import { send, init } from "emailjs-com";
+import { send } from "emailjs-com";
 
 const Contact = () => {
   const [confirmationMessage, setConfirmationMessage] = useState("");

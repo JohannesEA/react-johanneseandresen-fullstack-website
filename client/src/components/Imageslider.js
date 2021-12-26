@@ -4,7 +4,6 @@ import React, { useState } from "react";
 // 1.
 import Slider from "react-slick";
 import { GrNext, GrPrevious } from "react-icons/gr";
-import Button from "./Button"
 
 import "./imageslider.css";
 
