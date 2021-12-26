@@ -8,14 +8,14 @@ const Education = () => {
 
 
   return (
-    <Container >
+    <Container id="education">
       <Top>
-        <Title data-aos="zoom-in-up">Utdannelse</Title>
+        <Title data-aos="fade-up">Utdannelse</Title>
 
         <List>
-          <ListPoint data-aos="zoom-in-up"> <ListItem>Studiespesialiserende fag, Nesbru VGS, Asker</ListItem></ListPoint>
-          <ListPoint data-aos="zoom-in-up"> <ListItem>Førstegangstjeneste, Luftforsvaret </ListItem></ListPoint>
-          <ListPoint data-aos="zoom-in-up"> <ListItem>Ingeniørfdag, data, OsloMet</ListItem></ListPoint>
+          <ListPoint data-aos="fade-up"> <ListItem>Studiespesialiserende fag, Nesbru VGS, Asker</ListItem></ListPoint>
+          <ListPoint data-aos="fade-up"> <ListItem>Førstegangstjeneste, Luftforsvaret </ListItem></ListPoint>
+          <ListPoint data-aos="fade-up"> <ListItem>Ingeniørfdag, data, OsloMet</ListItem></ListPoint>
         </List>
 
       </Top>

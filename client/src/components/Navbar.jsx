@@ -2,6 +2,7 @@ import styled, { keyframes } from "styled-components";
 import { Spiral as Hamburger } from "hamburger-react";
 import getWindowDimensions from "../commonFunctions/Dimentions";
 import { useState } from "react";
+import { Link } from "react-scroll";
 
 const Navbar = () => {
   const { width } = getWindowDimensions();
@@ -9,7 +10,9 @@ const Navbar = () => {
 
   return (
     <Container>
-      <Logo src="/assets/logos/logo3.png" alt="nav-logo" />
+      <Link to="hero" spy={true} smooth={true} offset={-100} duration={300}>
+        <Logo src="/assets/logos/logo3.png" alt="nav-logo" />
+      </Link>
 
       {width < 800 && (
         <Hamburger
@@ -22,10 +25,26 @@ const Navbar = () => {
 
       {(isOpen || width > 800) && (
         <Menu isOpen={isOpen}>
-          <Menulink>Hjem</Menulink>
-          <Menulink>Utdannelse</Menulink>
-          <Menulink>Prosjekter</Menulink>
-          <Menulink>Kontakt Meg</Menulink>{" "}
+          <Link to="hero" spy={true} smooth={true} offset={-100} duration={300}>
+            {" "}
+            <Menulink>Hjem</Menulink>
+          </Link>
+     {  width < 800 &&   <Link to="about" spy={true} smooth={true} offset={-100} duration={300}>
+            {" "}
+            <Menulink>Om Meg</Menulink>
+          </Link>}
+          <Link to="education" spy={true} smooth={true} offset={-100} duration={300}>
+            {" "}
+            <Menulink>Utdannelse</Menulink>
+          </Link>
+          <Link to="projects" spy={true} smooth={true} offset={-100} duration={300}>
+            {" "}
+            <Menulink>Prosjekter</Menulink>
+          </Link>
+          <Link to="contact" spy={true} smooth={true} offset={-100} duration={300}>
+            {" "}
+            <Menulink>Kontakt Meg</Menulink>{" "}
+          </Link>
         </Menu>
       )}
     </Container>
@@ -85,12 +104,12 @@ const Menu = styled.div`
     position: absolute;
     top: 8em;
     left: auto;
-    right: ${({ isOpen }) => (isOpen ? "0" : "-100%" )};
-    opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};;
+    right: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
+    opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
   }
 `;
 
-const Menulink = styled.a`
+const Menulink = styled.p`
   margin: auto 1.2rem;
   font-size: 1.5rem;
   cursor: pointer;
@@ -101,6 +120,7 @@ const Menulink = styled.a`
   }
 
   @media (max-width: 800px) {
-    margin: 1.5rem auto;
+    margin: 1em auto;
+    
   }
 `;

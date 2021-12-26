@@ -6,22 +6,22 @@ const About = () => {
   const { width } = getWindowDimensions();
 
   return (
-    <Container>
+    <Container id="about" >
 
      <Top>
         {/* <Title>Johannes Erdahl Andresen</Title> */}
         {/* <Logo src="/assets/logos/logo3.png" alt="hero-logo"/> */}
 
 
-        <Image src="/assets/images/johannes.png" alt="johannes-hero-img" />
+        <Image src="/assets/images/johannes.png" alt="johannes-hero-img"  data-aos="fade-up"/>
 
-        <Text>
+        <Text data-aos="fade-up">
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
           since the 1500s,
         </Text>
 
-        <ButtonContainer>
+        <ButtonContainer data-aos="fade-up">
           <Button
             text="Kontakt Meg"
             bc="color-2"

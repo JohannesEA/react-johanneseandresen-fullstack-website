@@ -42,9 +42,9 @@ const Contact = () => {
 
     return (
         <Container id="contact">
-            <Title>Kontakt oss</Title>
+            <Title data-aos="fade-up">Kontakt oss</Title>
 
-            <ContactForm>
+            <ContactForm data-aos="fade-up">
                 {/* <Label>Email</Label> */}
                 <Input
                     type="text"

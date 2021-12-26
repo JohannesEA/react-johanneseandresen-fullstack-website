@@ -16,12 +16,12 @@ const Expertise = () => {
   window.addEventListener("scroll", activateAnimations);
 
   return (
-    <Container>
+    <Container id="expertice">
       {/* <Animation ></Animation> */}
-<Title>Mine Ferdigheter</Title>
-<Undertitle>Foretrukne språk</Undertitle>
+<Title data-aos="fade-up">Mine Ferdigheter</Title>
+<Undertitle data-aos="fade-up">Foretrukne språk</Undertitle>
 
-      <AnimationBox>
+      <AnimationBox data-aos="fade-up">
       <AnimationTwo w="90%">
           <TextContainer>
             <Text>Javascript</Text>
@@ -171,6 +171,11 @@ const FillContent = styled.div`
   align-items: center;
   padding-left: 1em;
   color: white;
+
+  @media (max-width: 8000px) {
+    font-size: .5rem;
+  }
+
 `;
 
 const Button = styled.button`
@@ -189,4 +194,8 @@ const Undertitle = styled.p`
 const Text = styled.p`
   width: 5em;
   font-size: 1.5rem;
+
+  @media (max-width: 1000px) {
+    font-size: 1.2rem;
+  }
 `;
