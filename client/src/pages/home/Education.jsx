@@ -14,8 +14,8 @@ const Education = () => {
 
         <List>
           <ListPoint data-aos="fade-up"> <ListItem>Studiespesialiserende fag, Nesbru VGS, Asker</ListItem></ListPoint>
-          <ListPoint data-aos="fade-up"> <ListItem>Førstegangstjeneste, Luftforsvaret </ListItem></ListPoint>
-          <ListPoint data-aos="fade-up"> <ListItem>Ingeniørfdag, data, OsloMet</ListItem></ListPoint>
+          <ListPoint data-aos="fade-up"> <ListItem>Førstegangstjenesten, Luftforsvaret </ListItem></ListPoint>
+          <ListPoint data-aos="fade-up"> <ListItem>Ingeniørfag, data, OsloMet</ListItem></ListPoint>
         </List>
 
       </Top>
