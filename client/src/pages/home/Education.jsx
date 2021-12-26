@@ -61,7 +61,7 @@ const List = styled.ul`
 const ListPoint  = styled.li`
 margin: 1em auto;
   list-style-type: circle;
-    color: blue;  
+    color: #032859;  
     font-size: 2rem;  
 
     @media (max-width: 1000px) {

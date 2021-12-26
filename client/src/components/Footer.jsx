@@ -15,6 +15,7 @@ display: flex;
 align-items: center;
 flex-direction: column;
 background-color: white;
+margin-top: 3em;
 `;
 
 const Top = styled.div`

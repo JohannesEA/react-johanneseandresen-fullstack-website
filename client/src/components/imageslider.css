@@ -15,7 +15,7 @@
   .prevArrow {
     position: absolute;
     top: 40%;
-    left: 2%;
+    left: 1%;
     z-index: 100;
     cursor: pointer;
     font-size: 2rem;
@@ -24,7 +24,7 @@
   .nextArrow {
     position: absolute;
     top: 40%;
-    right: 2%;
+    right: 1%;
     z-index: 100;
     cursor: pointer;
     font-size: 2rem;
@@ -34,6 +34,29 @@
       max-height: 20em;
       border-radius: .5em;
       box-shadow: 0px 2px 4px 2px rgba(0,0,0,0.4);
-
   }
 
+
+
+  @media only screen and (max-width: 600px) {
+    .prevArrow {
+      left: 0px;
+    }
+    
+    .nextArrow {
+      right: 0px;
+    }
+
+    .slideimage{
+      max-height: 18em;
+  }
+  }
+
+
+  @media only screen and (max-width: 3500px) {
+
+
+    .slideimage{
+      max-height: 16em;
+  }
+  }

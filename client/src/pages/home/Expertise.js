@@ -1,14 +1,25 @@
 import styled, { keyframes } from "styled-components";
 import { useState, useEffect } from "react";
+import getWindowDimensions from "../../commonFunctions/Dimentions";
 
 const Expertise = () => {
   const [fill, setFill] = useState(false);
   const [activateAnimationOne, setActivateAnimationOne] = useState(false);
+  const { width } = getWindowDimensions();
+
 
   const activateAnimations = () => {
-    if (window.scrollY >= 790) {
+    if (width > 400 && window.scrollY >= 790) {
       setActivateAnimationOne(true);
-    } else {
+      console.log(window.scrollY)
+    } 
+    else if (width <= 400 && window.scrollY >= 1060) {
+      setActivateAnimationOne(true);
+      console.log(window.scrollY)
+    } 
+    
+    else {
+      console.log(window.scrollY)
       setActivateAnimationOne(false);
     }
   };

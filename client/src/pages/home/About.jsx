@@ -1,6 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import Button from "../../components/Button";
 import getWindowDimensions from "../../commonFunctions/Dimentions";
+import {Link} from "react-scroll";
 
 const About = () => {
   const { width } = getWindowDimensions();
@@ -22,16 +23,23 @@ const About = () => {
         </Text>
 
         <ButtonContainer data-aos="fade-up">
-          <Button
-            text="Kontakt Meg"
-            bc="color-2"
-            onClick={() => console.log("Kontakt meg")}
-          ></Button>
+        <Link
+              to="contact"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={300}
+            >
+              <Button
+                text="Kontakt Meg"
+                bc="color-2"
+              ></Button>{" "}
+            </Link>
           <Button
             text="Last ned CV"
             bc="color-1"
             shadow="#e1effc"
-            onClick={() => console.log("Last ned CV")}
+            onClick={() => alert("Funkjson ikke laget enda")}
           ></Button>
         </ButtonContainer>
       </Top>
