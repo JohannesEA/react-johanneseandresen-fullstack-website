@@ -6,6 +6,8 @@ import getWindowDimensions from "../../commonFunctions/Dimentions";
 import About from "./About";
 import Education from "./Education";
 import Projects from "./Projects";
+import Contact from "./Contact";
+import Footer from "../../components/Footer";
 
 const Home = () => {
     const { width } = getWindowDimensions();
@@ -17,7 +19,9 @@ const Home = () => {
             {width < 800 && <About/>}
             <Education/>
             <Expertise/>   
-            <Projects/>       
+            <Projects/>
+            <Contact/>  
+            <Footer/>     
         </Container>
     )
 }

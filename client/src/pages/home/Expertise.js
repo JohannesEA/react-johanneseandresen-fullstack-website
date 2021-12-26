@@ -18,8 +18,16 @@ const Expertise = () => {
   return (
     <Container>
       {/* <Animation ></Animation> */}
+<Title>Mine Ferdigheter</Title>
+<Undertitle>Foretrukne språk</Undertitle>
 
       <AnimationBox>
+      <AnimationTwo w="90%">
+          <TextContainer>
+            <Text>Javascript</Text>
+          </TextContainer>{" "}
+          {activateAnimationOne && <FillContent>React, React-native, Vue</FillContent>}{" "}
+        </AnimationTwo>
         <AnimationTwo w="80%">
           <TextContainer>
             <Text>Html</Text>
@@ -32,21 +40,21 @@ const Expertise = () => {
           </TextContainer>{" "}
           {activateAnimationOne && <FillContent></FillContent>}{" "}
         </AnimationTwo>
-        <AnimationTwo w="90%">
-          <TextContainer>
-            <Text>Javascript</Text>
-          </TextContainer>{" "}
-          {activateAnimationOne && <FillContent></FillContent>}{" "}
-        </AnimationTwo>
         <AnimationTwo w="60%">
           <TextContainer>
             <Text>Java</Text>
           </TextContainer>{" "}
-          {activateAnimationOne && <FillContent></FillContent>}{" "}
+          {activateAnimationOne && <FillContent>Spring</FillContent>}{" "}
         </AnimationTwo>
-        <AnimationTwo w="60%">
+        <AnimationTwo w="50%">
           <TextContainer>
-            <Text>C++</Text>
+            <Text>C#</Text>
+          </TextContainer>{" "}
+          {activateAnimationOne && <FillContent>.NET</FillContent>}{" "}
+        </AnimationTwo>
+        <AnimationTwo w="40%">
+          <TextContainer>
+            <Text>Flutter</Text>
           </TextContainer>{" "}
           {activateAnimationOne && <FillContent></FillContent>}{" "}
         </AnimationTwo>
@@ -61,7 +69,8 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  min-height: 80vh;
+  height: auto;
+margin: 3em auto;
 `;
 
 const rotate = keyframes`
@@ -84,6 +93,16 @@ const fill = keyframes`
         }        
         
         `;
+
+const Title = styled.h1`
+font-size: 2.3rem;
+color: #091922;
+transition: all 0.3s ease;
+
+@media (max-width: 1000px) {
+  font-size: 1.8rem;
+}
+`;
 
 const Animation = styled.div`
   width: 200px;
@@ -148,6 +167,10 @@ const FillContent = styled.div`
   animation-duration: 1s;
   animation-fill-mode: forwards;
   width: 0%;
+  display: flex;
+  align-items: center;
+  padding-left: 1em;
+  color: white;
 `;
 
 const Button = styled.button`
@@ -159,6 +182,10 @@ const Button = styled.button`
 const TextContainer = styled.div`
 
 `;
+const Undertitle = styled.p`
+  font-size: 1.5rem;
+`;
+
 const Text = styled.p`
   width: 5em;
   font-size: 1.5rem;
