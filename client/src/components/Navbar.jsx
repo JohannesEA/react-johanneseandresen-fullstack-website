@@ -60,30 +60,14 @@ const Navbar = () => {
 
 export default Navbar;
 
-// const navanimation = keyframes`
-// 0%{
-// right: -100%;
-// opacity: 0;
-// }
 
-// 50%{
-//     right: -50%;
-//     opacity: .5;
-
-// }
-// 100%{
-//     right: 0%;
-//     opacity: 1;
-
-// }
-// `;
 
 const Container = styled.div`
   display: flex;
   position: sticky;
   align-items: center;
   justify-content: space-between;
-  height: 8em;
+  height: 5em;
   width: 100%;
   margin: 0 auto;
   z-index: 100;
@@ -113,7 +97,7 @@ const Menu = styled.div`
     width: 70%;
     height: 100vh;
     position: absolute;
-    top: 8em;
+    top: 5em;
     left: auto;
     right: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
     opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};

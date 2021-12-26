@@ -63,7 +63,7 @@ const Container = styled.div`
   @media (max-width: 800px) {
     max-height: 30vh;
     min-height: 28vh;
-    background: url("/assets/logos/logo3.png") no-repeat center;
+    background: url("/assets/logos/logo1.png") no-repeat center;
     background-size: cover;
     padding: 0px;
   }
