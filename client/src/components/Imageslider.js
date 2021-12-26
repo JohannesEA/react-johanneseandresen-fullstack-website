@@ -4,6 +4,7 @@ import React, { useState } from "react";
 // 1.
 import Slider from "react-slick";
 import { GrNext, GrPrevious } from "react-icons/gr";
+import Button from "./Button"
 
 import "./imageslider.css";
 
@@ -67,8 +68,18 @@ const ImageSlider = ({ images, slidesToShow = 3 }) => {
         key={image.id}
       >
         <div className="slideWrapper">
-          {image.code ? image.code : <img className="slideimage" src={image.src} alt={image.alt} />}
+          {image.code ? (
+            image.code
+          ) : (
+            <img
+              className="slideimage"
+              src={image.src}
+              alt={image.alt}
+            />
+          )}
         </div>
+        <button  onClick={() => (window.location.href = image.url)}> Mer Info</button>
+
       </div>
     );
   });

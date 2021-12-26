@@ -2,31 +2,25 @@ export const IMAGES = [
     {
       id: 1,
       src: "/assets/logos/mojo-logo.png",
-      alt: "Placeholder image",
+      alt: "mojo image",
+      url:"https://mojo-websites.no/"
     },
     {
       id: 2,
       src: "/assets/logos/mk-logo.png",
-      alt: "Placeholder image",
+      alt: "madking image",
+      url:"https://madkingmusic.netlify.app/"
     },
     {
       id: 3,
       src: "/assets/logos/pt-logo.png",
-      alt: "Placeholder image",
+      alt: "pt image",
+      url:"https://physioteacher.no/"
     },
     {
       id: 4,
       src: "/assets/logos/logo1.png",
-      alt: "Placeholder image",
-    },
-    {
-      id: 5,
-      src: "/assets/logos/logo2.png",
-      alt: "Placeholder image",
-    },
-    {
-      id: 6,
-      src: "/assets/logos/logo3.png",
-      alt: "Placeholder image",
-    },
+      alt: "logo image",
+      url:"https://johanneseandresen.netlify.app/"
+    }
   ];

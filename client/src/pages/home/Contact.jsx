@@ -1,16 +1,11 @@
 import styled from "styled-components";
 import { useState } from "react";
 import Button from "../../components/Button";
+import { send, init } from "emailjs-com";
+
 const Contact = () => {
-    //Validation message states
-    const [messageState, setMessageState] = useState({
-        email: "",
-        phonenumber: "",
-        title: "",
-        message: "",
-        confirm: "",
-        error: false,
-    });
+
+
 
     //Request message state => the userrequest that will get validated and sent to our mailbox
     const [requestMessage, setRequestMessage] = useState({
@@ -20,31 +15,28 @@ const Contact = () => {
         message: "",
     });
 
-    //Get input values
-    const handleChange = (event) => {
-        event.persist();
-        let value = event.target.value;
-        setRequestMessage({ ...requestMessage, [event.target.name]: value });
-    };
-
-    //Send request to db/mailbox
     const handleSendRequest = (e) => {
         e.preventDefault();
-        setMessageState({
-            ...messageState,
-            confirm:
-                "Din melding er nå sendt. Vi vil svare så raskt vi kan!",
-            error: false,
+        send('service_c4intou', 'template_39mbyff', requestMessage, "user_1fuo6rPChJNJaBBRPrhaQ")
+        .then(function(response) {
+           console.log('SUCCESS!', response.status, response.text);
+        }, function(error) {
+           console.log('FAILED...', error);
         });
+      };
+
+      const handleChange = (e) => {
+        setRequestMessage({ ...requestMessage, [e.target.name]: e.target.value });
+      };
+
        
-        
-    };
+    
 
     return (
         <Container id="contact">
-            <Title data-aos="fade-up">Kontakt oss</Title>
+            <Title data-aos="fade-up">Kontakt</Title>
 
-            <ContactForm data-aos="fade-up">
+            <ContactForm data-aos="fade-up" name="myForm"  onSubmit={handleSendRequest}>
                 {/* <Label>Email</Label> */}
                 <Input
                     type="text"
@@ -52,7 +44,7 @@ const Contact = () => {
                     name="email"
                     onChange={(e) => handleChange(e)}
                 />
-                <ErrorMessage>{messageState.email}</ErrorMessage>
+                {/* <ErrorMessage>{messageState.email}</ErrorMessage> */}
 
                 <Input
                     type="text"
@@ -60,7 +52,7 @@ const Contact = () => {
                     name="phonenumber"
                     onChange={(e) => handleChange(e)}
                 />
-                <ErrorMessage>{messageState.phonenumber}</ErrorMessage>
+                {/* <ErrorMessage>{messageState.phonenumber}</ErrorMessage> */}
 
                 <Input
                     type="text"
@@ -68,7 +60,7 @@ const Contact = () => {
                     name="title"
                     onChange={(e) => handleChange(e)}
                 />
-                <ErrorMessage>{messageState.title}</ErrorMessage>
+                {/* <ErrorMessage>{messageState.title}</ErrorMessage> */}
 
                 <TextArea
                     type="text"
@@ -76,21 +68,21 @@ const Contact = () => {
                     name="message"
                     onChange={(e) => handleChange(e)}
                 />
-                <ErrorMessage>{messageState.message}</ErrorMessage>
+                {/* <ErrorMessage>{messageState.message}</ErrorMessage> */}
 
                 <Button
                         text="Send"
                         bc="color-2"
-                        btnOnClick={(e) => handleSendRequest(e)}
+                        btnOnClick={handleSendRequest}
                     ></Button>
-                {!messageState.error && (
+                {/* {!messageState.error && (
                     <ConfirmationMessage>
                         {messageState.confirm}
                     </ConfirmationMessage>
                 )}
                 {messageState.error && (
                     <ErrorMessage>{messageState.confirm}</ErrorMessage>
-                )}
+                )} */}
             </ContactForm>
         </Container>
     );
@@ -120,6 +112,7 @@ const Title = styled.h1`
     color: black;
     font-size: 2rem;
     font-weight: 800;
+    margin-bottom: 2em;
 `;
 
 const ContactForm = styled.form`
@@ -163,11 +156,11 @@ const TextArea = styled.textarea`
 `;
 
 
-const ErrorMessage = styled.p`
-    font-size: 1.2rem;
-    color: red;
-`;
-const ConfirmationMessage = styled.p`
-    font-size: 1.2rem;
-    color: green;
-`;
+// const ErrorMessage = styled.p`
+//     font-size: 1.2rem;
+//     color: red;
+// `;
+// const ConfirmationMessage = styled.p`
+//     font-size: 1.2rem;
+//     color: green;
+// `;

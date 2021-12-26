@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/JohannesEA/react-mojo-fullstack-website/issues"
   },
-  "homepage": "https://github.com/JohannesEA/react-mojo-fullstack-website#readme"
+  "homepage": "https://github.com/JohannesEA/react-mojo-fullstack-website#readme",
+  "dependencies": {
+    "emailjs-com": "^3.2.0"
+  }
 }

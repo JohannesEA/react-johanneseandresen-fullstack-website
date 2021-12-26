@@ -27,7 +27,7 @@ export default Education;
 
 const Container = styled.div`
   padding: 0 1em;
-  margin-top: 3em;
+  margin-top: 2em;
   transition: all 0.3s ease;
 `;
 
@@ -59,7 +59,7 @@ const List = styled.ul`
 `;
 
 const ListPoint  = styled.li`
-margin: 1em auto;
+margin: 0px auto;
   list-style-type: circle;
     color: #032859;  
     font-size: 2rem;  

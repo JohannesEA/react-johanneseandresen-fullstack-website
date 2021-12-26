@@ -11,15 +11,12 @@ const Expertise = () => {
   const activateAnimations = () => {
     if (width > 400 && window.scrollY >= 790) {
       setActivateAnimationOne(true);
-      console.log(window.scrollY);
     } 
     else if (width <= 400 && window.scrollY >= 1080) {
       setActivateAnimationOne(true);
-      console.log(window.scrollY);
     } 
     
     else {
-      console.log(window.scrollY)
       setActivateAnimationOne(false);
     }
   };
@@ -29,8 +26,8 @@ const Expertise = () => {
   return (
     <Container id="expertice">
       {/* <Animation ></Animation> */}
-<Title data-aos="fade-up">Mine Ferdigheter</Title>
-<Undertitle data-aos="fade-up">Foretrukne språk</Undertitle>
+<Title data-aos="fade-up">Ferdigheter</Title>
+{/* <Undertitle data-aos="fade-up">Foretrukne språk</Undertitle> */}
 
       <AnimationBox data-aos="fade-up">
       <AnimationTwo w="90%">
@@ -45,7 +42,7 @@ const Expertise = () => {
           </TextContainer>
           {activateAnimationOne && <FillContent></FillContent>}{" "}
         </AnimationTwo>
-        <AnimationTwo w="70%">
+        <AnimationTwo w="80%">
           <TextContainer>
             <Text>Css</Text>
           </TextContainer>{" "}
@@ -57,13 +54,13 @@ const Expertise = () => {
           </TextContainer>{" "}
           {activateAnimationOne && <FillContent>Spring</FillContent>}{" "}
         </AnimationTwo>
-        <AnimationTwo w="50%">
+        <AnimationTwo w="60%">
           <TextContainer>
             <Text>C#</Text>
           </TextContainer>{" "}
           {activateAnimationOne && <FillContent>.NET</FillContent>}{" "}
         </AnimationTwo>
-        <AnimationTwo w="40%">
+        <AnimationTwo w="50%">
           <TextContainer>
             <Text>Flutter</Text>
           </TextContainer>{" "}

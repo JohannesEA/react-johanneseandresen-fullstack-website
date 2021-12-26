@@ -17,9 +17,7 @@ const About = () => {
         <Image src="/assets/images/johannes.png" alt="johannes-hero-img"  data-aos="fade-up"/>
 
         <Text data-aos="fade-up">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s,
+        Jeg er en svært motivert, sosial og pliktoppfyllende ung mann på 24 år. Jeg går mitt siste år som dataingeniørstudent ved OsloMet.
         </Text>
 
         <ButtonContainer data-aos="fade-up">
@@ -35,12 +33,12 @@ const About = () => {
                 bc="color-2"
               ></Button>{" "}
             </Link>
-          <Button
-            text="Last ned CV"
-            bc="color-1"
-            shadow="#e1effc"
-            onClick={() => alert("Funkjson ikke laget enda")}
-          ></Button>
+            <DownloadButton
+              href="/assets/files/Johannes-Erdahl-Andresen_CV.pdf"
+              download
+            >
+              Last ned CV
+            </DownloadButton>
         </ButtonContainer>
       </Top>
 
@@ -79,17 +77,17 @@ min-width: 30em;
 
 
 
-const Title = styled.h1`
-  font-size: 2.3rem;
-  color: #091922;
-  transition: all .3s ease;
+// const Title = styled.h1`
+//   font-size: 2.3rem;
+//   color: #091922;
+//   transition: all .3s ease;
 
 
-  @media (max-width: 1000px) {
-    font-size: 1.8rem;
-  }
+//   @media (max-width: 1000px) {
+//     font-size: 1.8rem;
+//   }
 
-`;
+// `;
 
 const Text = styled.p`
   font-size: 1.5rem;
@@ -101,13 +99,47 @@ const Text = styled.p`
   }
 `;
 
-const Bottom = styled.div`
-  text-align: center;
+// const Bottom = styled.div`
+//   text-align: center;
 
-`;
+// `;
 
 const Image = styled.img`
   min-height: 50vh;
   max-height: 60vh;
 
 `;
+
+const DownloadButton = styled.a`
+  font-size: 1rem;
+  font-weight: 500;
+  z-index: 1;
+  border-radius: .5em;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  background-color: ##fff;
+  color: #032859;
+  padding: 10px 14px;
+  box-shadow: 0px 0px 4px 2px #f0f8ff;
+  &:hover {
+    background-color: #e1f5ff;
+    border-radius: 0px;
+  }
+
+  @media (max-width: 1000px) {
+    padding: 9px 13px;
+  }
+  @media (max-width: 400px) {
+    padding: 8px 12px;
+  }
+`;
+
+{
+  /* <a
+href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+download
+>
+Click to download
+</a> */
+}
