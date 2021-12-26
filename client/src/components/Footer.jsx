@@ -5,7 +5,7 @@ const Footer = () => {
         <Container>
             <Top>
             <Link
-              to="contact"
+              to="hero"
               spy={true}
               smooth={true}
               offset={-100}
