@@ -1,6 +1,6 @@
-import './App.css';
 import { publicRequest } from './requestMethods';
 import { useEffect } from 'react';
+import Home from './pages/home/Home';
 
 function App() {
 
@@ -20,6 +20,7 @@ function App() {
 
   return (
     <div className="App">
+      <Home/>
 
     </div>
   );
