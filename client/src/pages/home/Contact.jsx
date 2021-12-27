@@ -15,25 +15,45 @@ const Contact = () => {
     message: "",
   });
 
+  const validation = (email, phonenumber, title, message) => {
+    if (email !== "" && phonenumber !== "" && title !== "" && message !== "") {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   const handleSendRequest = (e) => {
     e.preventDefault();
-    send(
-      "service_c4intou",
-      "template_39mbyff",
-      requestMessage,
-      "user_1fuo6rPChJNJaBBRPrhaQ"
-    ).then(
-      function (response) {
-        console.log("SUCCESS!", response.status, response.text);
-        setConfirmationMessage(
-          "Takk for at du ønsker å komme i kontakt med meg. Jeg svarer så fort jeg kan."
-        );
-      },
-      function (error) {
-        console.log("FAILED...", error);
-        setErrorMessage("Noe gikk galt.");
-      }
-    );
+    if (
+      validation(
+        requestMessage.email,
+        requestMessage.phonenumber,
+        requestMessage.title,
+        requestMessage.message
+      )
+    ) {
+      send(
+        "service_c4intou",
+        "template_39mbyff",
+        requestMessage,
+        "user_1fuo6rPChJNJaBBRPrhaQ"
+      ).then(
+        function (response) {
+          console.log("SUCCESS!", response.status, response.text);
+          setErrorMessage("");
+          setConfirmationMessage(
+            "Takk for at du ønsker å komme i kontakt med meg. Jeg svarer så fort jeg kan."
+          );
+        },
+        function (error) {
+          console.log("FAILED...", error);
+          setErrorMessage("Noe gikk galt.");
+        }
+      );
+    } else {
+      setErrorMessage("Alle felt må være fylt ut. Prøv igjen.");
+    }
   };
 
   const handleChange = (e) => {
@@ -91,9 +111,7 @@ const Contact = () => {
           <ConfirmationMessage>{confirmationMessage}</ConfirmationMessage>
         )}
 
-        {errorMessage.length > 0 && 
-          <ErrorMessage>{errorMessage}</ErrorMessage>
-        }
+        {errorMessage.length > 0 && <ErrorMessage>{errorMessage}</ErrorMessage>}
       </ContactForm>
     </Container>
   );
@@ -135,7 +153,6 @@ const ContactForm = styled.form`
   background-color: #fff;
   box-shadow: 0px 0px 4px 2px #e1f5ff;
   width: 80%;
-
 `;
 
 // const Label = styled.label`
