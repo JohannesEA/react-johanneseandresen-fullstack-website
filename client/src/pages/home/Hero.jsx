@@ -17,7 +17,7 @@ const Hero = () => {
           <Title>Johannes Erdahl Andresen</Title>
           {/* <Logo src="/assets/logos/logo3.png" alt="hero-logo"/> */}
           <Text>
-          Jeg er en svært motivert, sosial og pliktoppfyllende ung mann på 24 år. Jeg går mitt siste år som dataingeniørstudent ved OsloMet.
+          Jeg er en svært motivert, sosial og pliktoppfyllende ung mann på 24 år som går mitt siste år som dataingeniørstudent ved OsloMet.
           </Text>
 
           <ButtonContainer>

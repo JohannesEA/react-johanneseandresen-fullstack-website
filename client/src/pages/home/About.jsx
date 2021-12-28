@@ -17,7 +17,7 @@ const About = () => {
         <Image src="/assets/images/johannes.png" alt="johannes-hero-img"  data-aos="fade-up"/>
 
         <Text data-aos="fade-up">
-        Jeg er en svært motivert, sosial og pliktoppfyllende ung mann på 24 år. Jeg går mitt siste år som dataingeniørstudent ved OsloMet.
+        Jeg er en svært motivert, sosial og pliktoppfyllende ung mann på 24 år som går mitt siste år som dataingeniørstudent ved OsloMet.
         </Text>
 
         <ButtonContainer data-aos="fade-up">
