@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import Button from "../../components/Button";
 import { send } from "emailjs-com";
+import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
 
 const Contact = () => {
   const [confirmationMessage, setConfirmationMessage] = useState("");
@@ -64,11 +65,27 @@ const Contact = () => {
     <Container id="contact">
       <Title data-aos="fade-up">Kontakt</Title>
 
+      <ContactInfoContainer>
+<IconBox src="" text="johannes.erdahl.andresen@gmail.com" title="Epost"/>
+<IconBox src="" text="+47 99509035" title="Mobilnummer" />
+      </ContactInfoContainer>
+
+
       <ContactForm
         data-aos="fade-up"
         name="myForm"
         onSubmit={handleSendRequest}
       >
+              <ContactInfoContainer>
+          <IconBox>
+            <AiOutlinePhone color="black" fontSize={20}/>
+            <Text>+47 99509035</Text> 
+          </IconBox>
+          <IconBox>
+          <AiOutlineMail color="black" fontSize={20}/>
+          <Text>johannes.erdahl.andresen@gmail.com</Text> 
+          </IconBox>
+        </ContactInfoContainer>
         {/* <Label>Email</Label> */}
         <Input
           type="text"
@@ -138,10 +155,10 @@ const Container = styled.div`
 
 const Title = styled.h1`
   flex: 1;
-  color: black;
+  color: #032859;
   font-size: 2rem;
   font-weight: 800;
-  margin-bottom: 2em;
+  margin-bottom:1em;
 `;
 
 const ContactForm = styled.form`
@@ -169,6 +186,11 @@ const Input = styled.input`
   font-size: 1.2rem;
   border: none;
   border-bottom: 1px solid #e1f5ff;
+
+  @media (max-width: 400px){
+    font-size: .8rem;
+  }
+
 `;
 
 const TextArea = styled.textarea`
@@ -179,6 +201,10 @@ const TextArea = styled.textarea`
   max-width: 100%;
   font-size: 1.2rem;
   min-height: 10em;
+
+  @media (max-width: 400px){
+    font-size: .8rem;
+  }
 `;
 
 const ErrorMessage = styled.p`
@@ -188,4 +214,34 @@ const ErrorMessage = styled.p`
 const ConfirmationMessage = styled.p`
   font-size: 1.2rem;
   color: #032859;
+`;
+
+
+const Text = styled.p`
+  font-size: 1.1rem;
+  margin-left: .5em;
+
+  @media (max-width: 400px){
+    font-size: .8rem;
+  }
+  @media (max-width: 280px){
+    font-size: .6rem;
+  }
+`;
+
+const ContactInfoContainer = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+`;
+const IconBox = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 `;

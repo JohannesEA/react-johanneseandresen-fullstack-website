@@ -1,4 +1,5 @@
 // src/components/ImageSlider.js
+import Button from "../components/Button"
 
 import React, { useState } from "react";
 // 1.
@@ -77,7 +78,8 @@ const ImageSlider = ({ images, slidesToShow = 3 }) => {
             />
           )}
         </div>
-        <button  onClick={() => (window.location.href = image.url)}> Mer Info</button>
+        <Button bc="color-1" onClick={() => (window.location.href = image.url)} shadow="#f0f8ff" text="Mer Info"/>
+        {/* <button  onClick={() => (window.location.href = image.url)}> Mer Info</button> */}
 
       </div>
     );

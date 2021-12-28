@@ -34,15 +34,16 @@ text-align: center;
 
 
 const ImageContainer = styled.div`
-    padding: 2em 0;
     transition: all .3s ease;
 `;
 
 
 const Title = styled.h1`
   font-size: 2.3rem;
-  color: #091922;
+  color: #032859;
   transition: all 0.3s ease;
+  margin-bottom:1em;
+
 
   @media (max-width: 1000px) {
     font-size: 1.8rem;

@@ -22,6 +22,7 @@ const Navbar = () => {
         size={40}
         toggled={isOpen}
         toggle={setOpen}
+        color="#032859"
       ></Hamburger></HamburgerContainer>
  
       )}
@@ -107,16 +108,16 @@ const Menu = styled.div`
 
 const Menulink = styled.p`
   margin: auto 1.2rem;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   cursor: pointer;
-  color: #091922;
+  color: #032859;
 
   &:hover {
     color: #04397e;
   }
 
   @media (max-width: 800px) {
-    margin: 1.2rem;
+    margin: 1.1rem;
     
   }
 `;
@@ -134,7 +135,7 @@ const MenuLogoText = styled.h1`
   margin: auto 1.2rem;
 
   font-size: 1.5rem;
-  color: #091922;
+  color: #032859;
   transition: all 0.3s ease;
   font-family: 'Licorice', cursive;
 

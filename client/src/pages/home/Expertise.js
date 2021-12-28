@@ -6,16 +6,12 @@ const Expertise = () => {
   const [activateAnimationOne, setActivateAnimationOne] = useState(false);
   const { width } = getWindowDimensions();
 
-
   const activateAnimations = () => {
-    if (width > 400 && window.scrollY >= 790) {
+    if (width > 400 && window.scrollY >= 580) {
       setActivateAnimationOne(true);
-    } 
-    else if (width <= 400 && window.scrollY >= 1000) {
+    } else if (width <= 400 && window.scrollY >= 800) {
       setActivateAnimationOne(true);
-    } 
-    
-    else {
+    } else {
       setActivateAnimationOne(false);
     }
   };
@@ -25,15 +21,15 @@ const Expertise = () => {
   return (
     <Container id="expertice">
       {/* <Animation ></Animation> */}
-<Title data-aos="fade-up">Ferdigheter</Title>
-{/* <Undertitle data-aos="fade-up">Foretrukne språk</Undertitle> */}
+      <Title data-aos="fade-up">Ferdigheter</Title>
+      {/* <Undertitle data-aos="fade-up">Foretrukne språk</Undertitle> */}
 
       <AnimationBox data-aos="fade-up">
-      <AnimationTwo w="90%">
+        <AnimationTwo w="90%">
           <TextContainer>
             <Text>Javascript</Text>
           </TextContainer>{" "}
-          {activateAnimationOne && <FillContent>React</FillContent>}{" "}
+          {activateAnimationOne && <FillContent>React, Node</FillContent>}{" "}
         </AnimationTwo>
         <AnimationTwo w="80%">
           <TextContainer>
@@ -83,17 +79,10 @@ const Container = styled.div`
   align-items: center;
   flex-direction: column;
   height: auto;
-margin: 3em auto;
+  margin: 3em auto;
 `;
 
-// const rotate = keyframes`
-//     0%{
-//             transform: rotate(0deg);
-//         }
-//         100%{
-//             transform: rotate(-360deg);
-//         }
-// `;
+
 
 const fill = keyframes`
         0%{
@@ -104,17 +93,17 @@ const fill = keyframes`
             background-color: #032859;
             width: 100%;
         }        
-        
-        `;
+`;
 
 const Title = styled.h1`
-font-size: 2.3rem;
-color: #091922;
-transition: all 0.3s ease;
+  font-size: 2.3rem;
+  color: #032859;
+  transition: all 0.3s ease;
+  margin-bottom:1em;
 
-@media (max-width: 1000px) {
-  font-size: 1.8rem;
-}
+  @media (max-width: 1000px) {
+    font-size: 1.8rem;
+  }
 `;
 
 // const Animation = styled.div`
@@ -161,8 +150,6 @@ const AnimationBox = styled.div`
   padding: 0;
 `;
 
-
-
 const AnimationTwo = styled.div`
   display: flex;
   flex-direction: row;
@@ -186,9 +173,8 @@ const FillContent = styled.div`
   color: white;
 
   @media (max-width: 8000px) {
-    font-size: .5rem;
+    font-size: 0.5rem;
   }
-
 `;
 
 // const Button = styled.button`
@@ -197,9 +183,7 @@ const FillContent = styled.div`
 //   background-color: orange;
 // `;
 
-const TextContainer = styled.div`
-
-`;
+const TextContainer = styled.div``;
 // const Undertitle = styled.p`
 //   font-size: 1.5rem;
 // `;

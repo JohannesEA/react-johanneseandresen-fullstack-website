@@ -5,6 +5,7 @@ const Button = ({
     text,
     bc,
     shadow,
+    onClick
 }) => {
     const [BACKGROUND_COLOR, setBACKGROUNDCOLOR] = useState("");
     const [COLOR, setCOLOR] = useState("");
@@ -51,6 +52,7 @@ const Button = ({
             hover={HOVER_COLOR}
             color={COLOR}
             shadowcolor={SHADOW_COLOR}
+            onClick={onClick}
         >
             {text}
         </MyButton>

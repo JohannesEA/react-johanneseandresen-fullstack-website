@@ -41,7 +41,7 @@ const Top = styled.div`
 
 const Title = styled.h1`
   font-size: 2.3rem;
-  color: #091922;
+  color: #032859;
   transition: all 0.3s ease;
 
   @media (max-width: 1000px) {
