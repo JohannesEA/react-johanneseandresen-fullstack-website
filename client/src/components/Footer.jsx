@@ -3,7 +3,7 @@ import { Link } from "react-scroll";
 import {
   AiOutlineCopyrightCircle,
   AiOutlineGithub,
-  AiOutlineInstagram,
+  AiOutlineLinkedin,
 } from "react-icons/ai";
 import getWindowDimensions from "../commonFunctions/Dimentions";
 
@@ -23,10 +23,10 @@ const Footer = () => {
           <SocialLink
             onClick={() =>
               (window.location.href =
-                "https://www.instagram.com/johannesandresen/")
+                "https://www.linkedin.com/in/johannes-erdahl-andresen-2aa117205/")
             }
           >
-            <AiOutlineInstagram fontSize={30} />
+            <AiOutlineLinkedin fontSize={30} />
           </SocialLink>
         </Right>
         {width > 800 && (
