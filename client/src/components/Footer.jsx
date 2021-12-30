@@ -45,7 +45,7 @@ const Footer = () => {
       </Top>
 
       <Bottom>
-        Copyright <AiOutlineCopyrightCircle /> johanneseandresen.no
+      johanneseandresen.no&nbsp;<AiOutlineCopyrightCircle  fontSize={15}  />&nbsp;2021
       </Bottom>
     </Container>
   );
