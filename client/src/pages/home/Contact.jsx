@@ -3,10 +3,13 @@ import { useState } from "react";
 import Button from "../../components/Button";
 import { send } from "emailjs-com";
 import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
+import LoadingAnimation from "../../components/LoadingAnimation";
 
 const Contact = () => {
   const [confirmationMessage, setConfirmationMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [isLoading, setIsLoading] = useState("");
+
 
   //Request message state => the userrequest that will get validated and sent to our mailbox
   const [requestMessage, setRequestMessage] = useState({
@@ -26,6 +29,7 @@ const Contact = () => {
 
   const handleSendRequest = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     if (
       validation(
         requestMessage.email,
@@ -46,14 +50,20 @@ const Contact = () => {
           setConfirmationMessage(
             "Takk for at du ønsker å komme i kontakt med meg. Jeg svarer så fort jeg kan."
           );
+          setIsLoading(false);
+
         },
         function (error) {
           console.log("FAILED...", error);
           setErrorMessage("Noe gikk galt.");
+          setIsLoading(false);
+
         }
       );
     } else {
       setErrorMessage("Alle felt må være fylt ut. Prøv igjen.");
+      setIsLoading(false);
+
     }
   };
 
@@ -124,6 +134,7 @@ const Contact = () => {
           bc="color-2"
           btnOnClick={handleSendRequest}
         ></Button>
+        {isLoading && <LoadingAnimation/>}
         {confirmationMessage.length > 0 && (
           <ConfirmationMessage>{confirmationMessage}</ConfirmationMessage>
         )}
@@ -166,7 +177,7 @@ const ContactForm = styled.form`
   flex-direction: column;
   text-align: center;
   border-radius: 1em;
-  padding: 1em 1em 0 1em;
+  padding: 1em;
   background-color: #fff;
   box-shadow: 0px 0px 4px 2px #e1f5ff;
   width: 80%;
