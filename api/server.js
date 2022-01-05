@@ -13,8 +13,12 @@ const url = process.env.URL;
 
 mongoose
   .connect(url)
-  .then(() => console.log("db connection successfull"))
-  .catch((err) => console.log(err));
+  .then(() => {
+    console.log("db connection successfull");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 app.use(cors());
 app.use(express.json());
@@ -22,7 +26,7 @@ app.use("/api/skills", skillsRoute);
 app.use("/api/projects", projectRoute);
 
 app.get("/", (req, res) => {
-  res.send(`Server is running on port ${port}.. ${url}`);
+  res.send(`Server is running on port ${port}.. `);
 });
 
 app.listen(port, () => {
