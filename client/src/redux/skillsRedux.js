@@ -61,7 +61,7 @@ const skillSlice = createSlice({
       state.isFetching = true;
       state.error = false;
     },
-    updateSkilluccess: (state, action) => {
+    updateSkillSuccess: (state, action) => {
       state.isFetching = false;
       state.skills[
         state.skills.findIndex((item) => item._id === action.payload.id)
@@ -87,5 +87,8 @@ export const {
   addSkillStart,
   addSkillSuccess,
   addSkillFailure,
+  updateSkillStart,
+  updateSkillSuccess,
+  updateSkillFailure,
 } = skillSlice.actions;
 export default skillSlice.reducer;
