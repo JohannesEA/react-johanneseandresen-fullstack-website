@@ -1,18 +1,18 @@
 const express = require("express");
 const cors = require("cors");
-const dotenv = require("dotenv");
+require("dotenv").config();
 const mongoose = require("mongoose");
 const skillsRoute = require("./routes/skills");
 const projectRoute = require("./routes/project");
 
 // const path = require('path');
 const app = express();
-dotenv.config();
+
+const port = process.env.PORT || 5000;
+const url = process.env.URL;
 
 mongoose
-  .connect(
-    "mongodb+srv://johannesea:BraHAnDek527!Jek!@cluster0.0nfuw.mongodb.net/johannesea_website?retryWrites=true&w=majority"
-  )
+  .connect(url)
   .then(() => console.log("db connection successfull"))
   .catch((err) => console.log(err));
 
@@ -25,6 +25,6 @@ app.get("/", (req, res) => {
   res.send("Server is running..");
 });
 
-app.listen(process.env.PORT || 5000, () => {
+app.listen(port, () => {
   console.log("Server is running..");
 });
