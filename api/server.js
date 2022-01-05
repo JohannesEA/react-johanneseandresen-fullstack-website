@@ -22,7 +22,7 @@ app.use("/api/skills", skillsRoute);
 app.use("/api/projects", projectRoute);
 
 app.get("/", (req, res) => {
-  res.send(`Server is running on port ${port}..`);
+  res.send(`Server is running on port ${port}.. ${url}`);
 });
 
 app.listen(port, () => {
