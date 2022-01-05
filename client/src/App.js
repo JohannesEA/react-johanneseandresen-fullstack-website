@@ -1,11 +1,13 @@
-import styled from 'styled-components';
-import Home from './pages/home/Home';
+import styled from "styled-components";
+import Home from "./pages/home/Home";
 import "aos/dist/aos.css";
 import AOS from "aos";
+import { useDispatch, useSelector } from "react-redux";
+// import { getContent } from "./redux/apiCalls";
 
 const App = () => {
   AOS.init();
-
+  const dispatch = useDispatch();
 
   // useEffect(() => {
   //   const testAPI = async () => {
@@ -21,11 +23,10 @@ const App = () => {
 
   return (
     <Container>
-      <Home/>
-
+      <Home />
     </Container>
   );
-}
+};
 
 export default App;
 

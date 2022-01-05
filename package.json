@@ -1,27 +1,28 @@
 {
-  "name": "react-mojo-fullstack-website",
-  "version": "1.0.0",
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "server.js",
-  "engines": {
-    "node": "14.17.5",
-    "npm": "8.1.2"
-  },
-  "scripts": {
-    "start": "cd ./api && npm run start"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JohannesEA/react-mojo-fullstack-website.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JohannesEA/react-mojo-fullstack-website/issues"
-  },
-  "homepage": "https://github.com/JohannesEA/react-mojo-fullstack-website#readme",
-  "dependencies": {
-    "emailjs-com": "^3.2.0"
-  }
+    "name": "react-mojo-fullstack-website",
+    "version": "1.0.0",
+    "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+    "main": "server.js",
+    "engines": {
+        "node": "14.17.5",
+        "npm": "8.1.2"
+    },
+    "scripts": {
+        "start": "cd ./api && npm run start",
+        "dev": "concurrently \"cd api && npm run start\" \"cd client && npm start\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/JohannesEA/react-mojo-fullstack-website.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/JohannesEA/react-mojo-fullstack-website/issues"
+    },
+    "homepage": "https://github.com/JohannesEA/react-mojo-fullstack-website#readme",
+    "dependencies": {
+        "emailjs-com": "^3.2.0"
+    }
 }
