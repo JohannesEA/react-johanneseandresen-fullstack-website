@@ -18,7 +18,12 @@ const AdminHero = () => {
   const [success, setSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const [data, setData] = useState({ title: "", subtitle: "", img="", cv="" });
+  const [data, setData] = useState({
+    title: "",
+    subtitle: "",
+    img: "",
+    cv: "",
+  });
 
   const handleChange = (e) => {
     e.preventDefault();
