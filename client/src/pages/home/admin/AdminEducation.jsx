@@ -64,6 +64,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+  margin-top: 3em;
 `;
 
 const Title = styled.h1`

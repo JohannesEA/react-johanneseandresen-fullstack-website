@@ -30,7 +30,6 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/admin" element={user ? <AdminHome /> : <Home />} />
       </Routes>
-      1
     </Router>
   );
 };

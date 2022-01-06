@@ -3,6 +3,7 @@ import getWindowDimensions from "../../../commonFunctions/Dimentions";
 import AdminHero from "./AdminHero";
 import AdminEducation from "./AdminEducation";
 import AdminExpertise from "./AdminExpertise";
+import AdminProjects from "./AdminProjects";
 
 const AdminHome = () => {
   const { width } = getWindowDimensions();
@@ -12,6 +13,7 @@ const AdminHome = () => {
       <AdminHero />
       <AdminEducation />
       <AdminExpertise />
+      <AdminProjects />
     </Container>
   );
 };

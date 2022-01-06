@@ -9,6 +9,13 @@ import {
   ButtonContainer,
   Label,
 } from "./Forms";
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage";
+import app from "../../../firebase";
 import Button from "../../../components/Button";
 import LoadingAnimation from "../../../components/LoadingAnimation";
 
@@ -17,6 +24,7 @@ const AdminHero = () => {
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [imageIsLoading, setImageIsLoading] = useState(false);
 
   const [data, setData] = useState({
     title: "",
@@ -29,13 +37,45 @@ const AdminHero = () => {
     e.preventDefault();
     let value = e.target.value;
     let name = e.target.name;
-
     setData({ ...data, [name]: value });
+  };
+
+  const handleFileUpload = (e) => {
+    e.preventDefault();
+    let file = e.target.files[0];
+    let name = e.target.name;
+    const fileName = new Date().getTime + file.name;
+    const storage = getStorage(app);
+    const storageRef = ref(storage, fileName);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        setImageIsLoading(true);
+        switch (snapshot.state) {
+          case "paused":
+            setImageIsLoading(false);
+            break;
+          case "running":
+            setImageIsLoading(true);
+            break;
+        }
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          setData({ ...data, [name]: downloadURL });
+          setImageIsLoading(false);
+        });
+      }
+    );
   };
 
   const handleClick = (e) => {
     e.preventDefault();
-
     console.log(data);
   };
 
@@ -64,15 +104,17 @@ const AdminHero = () => {
           type="file"
           name="img"
           placeholder="Bilde.."
-          onChange={handleChange}
+          onChange={handleFileUpload}
         />
+
         <Label>CV</Label>
         <Input
           type="file"
           name="cv"
           placeholder="CV.."
-          onChange={handleChange}
+          onChange={handleFileUpload}
         />
+        {imageIsLoading && <LoadingAnimation />}
 
         <ButtonContainer>
           {" "}
@@ -94,6 +136,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+  margin-top: 3em;
 `;
 
 const Title = styled.h1`
