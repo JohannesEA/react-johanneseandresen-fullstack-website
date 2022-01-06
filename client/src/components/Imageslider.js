@@ -1,5 +1,5 @@
 // src/components/ImageSlider.js
-import Button from "../components/Button"
+import Button from "../components/Button";
 
 import React, { useState } from "react";
 // 1.
@@ -41,15 +41,11 @@ const ImageSlider = ({ images, slidesToShow = 3 }) => {
     focusOnSelect: true,
     nextArrow: <NextArrow onClick />,
     prevArrow: <PrevArrow onClick />,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+
     beforeChange: (current, next) => setImageIndex(next),
     responsive: [
-      {
-        breakpoint: 1490,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        },
-      },
       {
         breakpoint: 820,
         settings: {
@@ -71,16 +67,16 @@ const ImageSlider = ({ images, slidesToShow = 3 }) => {
           {image.code ? (
             image.code
           ) : (
-            <img
-              className="slideimage"
-              src={image.src}
-              alt={image.alt}
-            />
+            <img className="slideimage" src={image.src} alt={image.alt} />
           )}
         </div>
-        <Button bc="color-1" onClick={() => (window.location.href = image.url)} shadow="#f0f8ff" text="Mer Info"/>
+        <Button
+          bc="color-1"
+          onClick={() => (window.location.href = image.url)}
+          shadow="#f0f8ff"
+          text="Mer Info"
+        />
         {/* <button  onClick={() => (window.location.href = image.url)}> Mer Info</button> */}
-
       </div>
     );
   });
