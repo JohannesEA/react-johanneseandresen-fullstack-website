@@ -6,6 +6,7 @@ const skillsRoute = require("./routes/skills");
 const projectRoute = require("./routes/project");
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/user");
+const contentsRoute = require("./routes/content");
 
 // const path = require('path');
 const app = express();
@@ -28,6 +29,7 @@ app.use("/api/skills", skillsRoute);
 app.use("/api/projects", projectRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
+app.use("/api/content", contentsRoute);
 
 app.get("/", (req, res) => {
   res.send(`Server is running on port ${port}.. `);

@@ -1,24 +1,26 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 import Button from "../../components/Button";
 import getWindowDimensions from "../../commonFunctions/Dimentions";
 import { Link } from "react-scroll";
-
+import { useDispatch, useSelector } from "react-redux";
+import { getContent } from "../../redux/apiCalls";
 const Hero = () => {
   const { width } = getWindowDimensions();
+  const content = useSelector((state) => state.content.contents);
+  const dispatch = useDispatch();
 
-  // const handleDownloadResumme = () => {
-  //   alert("Download");
-  // };
+  useEffect(() => {
+    getContent(dispatch);
+  }, [dispatch]);
 
   return (
     <Container id="hero">
       {width > 800 && (
         <Left>
-          <Title>Johannes Erdahl Andresen</Title>
+          <Title>{content[0].herotitle}</Title>
           {/* <Logo src="/assets/logos/logo3.png" alt="hero-logo"/> */}
-          <Text>
-          Jeg er en svært motivert, sosial og pliktoppfyllende ung mann på 24 år som går mitt siste år som dataingeniørstudent ved OsloMet.
-          </Text>
+          <Text>{content[0].heroSubTitle}</Text>
 
           <ButtonContainer>
             <Link
@@ -31,10 +33,7 @@ const Hero = () => {
               <Button text="Kontakt Meg" bc="color-2"></Button>{" "}
             </Link>
 
-            <DownloadButton
-              href="/assets/files/Johannes-Erdahl-Andresen_CV.pdf"
-              download
-            >
+            <DownloadButton href={content[0].heroCV} download>
               Last ned CV
             </DownloadButton>
           </ButtonContainer>
@@ -43,7 +42,7 @@ const Hero = () => {
 
       {width > 800 && (
         <Right>
-          <Image src="/assets/images/johannes.png" alt="johannes-hero-img" />
+          <Image src={content[0].heroImg} alt="johannes-hero-img" />
         </Right>
       )}
     </Container>
@@ -72,7 +71,7 @@ const Container = styled.div`
 const Left = styled.div`
   display: grid;
   padding-top: 8em;
-  grid-template-rows: 1.7fr 1.5fr  1.5fr;
+  grid-template-rows: 1.7fr 1.5fr 1.5fr;
 `;
 
 const ButtonContainer = styled.div`
@@ -92,7 +91,7 @@ const Title = styled.h1`
   font-size: 2.3rem;
   color: #032859;
   transition: all 0.3s ease;
-  font-family: 'Licorice', cursive;
+  font-family: "Licorice", cursive;
 
   @media (max-width: 1000px) {
     font-size: 1.8rem;
@@ -121,7 +120,7 @@ const DownloadButton = styled.a`
   font-size: 1rem;
   font-weight: 500;
   z-index: 1;
-  border-radius: .5em;
+  border-radius: 0.5em;
   transition: all 0.3s ease;
   cursor: pointer;
   border: none;

@@ -1,4 +1,4 @@
-import { publicRequest } from "../requestMethods";
+import { publicRequest, userRequest } from "../requestMethods";
 import {
   getProjectStart,
   getProjectSuccess,
@@ -33,6 +33,31 @@ import {
   addSkillSuccess,
   addSkillFailure,
 } from "./skillsRedux";
+import {
+  getContentFailure,
+  getContentStart,
+  getContentSuccess,
+  addContentFailure,
+  addContentStart,
+  addContentSuccess,
+  updateContentFailure,
+  updateContentStart,
+  updateContentSuccess,
+} from "./contentRedux";
+
+import { loginFailure, loginStart, loginSuccess } from "./userRedux";
+
+export const login = async (dispatch, user) => {
+  dispatch(loginStart());
+  try {
+    console.log(user);
+    const res = await publicRequest.post("api/auth/login", user);
+    dispatch(loginSuccess(res.data));
+  } catch (err) {
+    dispatch(loginFailure());
+    console.log("Login Failed!", err);
+  }
+};
 
 export const getSkills = async (dispatch) => {
   getSkillStart(dispatch);
@@ -111,5 +136,37 @@ export const addProject = async (project, dispatch) => {
     dispatch(addProjectSuccess(res.data));
   } catch (err) {
     dispatch(addProjectFailure());
+  }
+};
+
+export const getContent = async (dispatch) => {
+  dispatch(getContentStart());
+  try {
+    const res = await publicRequest.get("api/content");
+    dispatch(getContentSuccess(res.data));
+  } catch (err) {
+    dispatch(getContentFailure());
+  }
+};
+
+export const addContent = async (content, dispatch) => {
+  dispatch(addContentStart());
+  try {
+    const res = await userRequest.post(`api/content`, content);
+    dispatch(addContentSuccess(res.data));
+  } catch (err) {
+    dispatch(addContentFailure());
+  }
+};
+
+export const updateContent = async (id, content, dispatch) => {
+  dispatch(updateContentStart());
+  try {
+    // update
+    const res = await userRequest.put(`api/content/${id}`, content);
+    console.log(res.data);
+    dispatch(updateContentSuccess({ id, content }));
+  } catch (err) {
+    dispatch(updateContentFailure());
   }
 };

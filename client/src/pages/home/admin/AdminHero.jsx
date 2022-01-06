@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import getWindowDimensions from "../../../commonFunctions/Dimentions";
 import {
@@ -18,6 +18,8 @@ import {
 import app from "../../../firebase";
 import Button from "../../../components/Button";
 import LoadingAnimation from "../../../components/LoadingAnimation";
+import { updateContent, getContent } from "../../../redux/apiCalls";
+import { useDispatch, useSelector } from "react-redux";
 
 const AdminHero = () => {
   const { width } = getWindowDimensions();
@@ -25,12 +27,18 @@ const AdminHero = () => {
   const [success, setSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [imageIsLoading, setImageIsLoading] = useState(false);
+  const content = useSelector((state) => state.content.contents);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    getContent(dispatch);
+  }, [dispatch]);
 
   const [data, setData] = useState({
     title: "",
     subtitle: "",
-    img: "",
-    cv: "",
+    heroImg: "",
+    heroCV: "",
   });
 
   const handleChange = (e) => {
@@ -76,7 +84,7 @@ const AdminHero = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    console.log(data);
+    updateContent(content[0]._id, data, dispatch);
   };
 
   return (
@@ -102,7 +110,7 @@ const AdminHero = () => {
         <Label>Bilde</Label>
         <Input
           type="file"
-          name="img"
+          name="heroImg"
           placeholder="Bilde.."
           onChange={handleFileUpload}
         />
@@ -110,7 +118,7 @@ const AdminHero = () => {
         <Label>CV</Label>
         <Input
           type="file"
-          name="cv"
+          name="heroCV"
           placeholder="CV.."
           onChange={handleFileUpload}
         />

@@ -1,6 +1,8 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import skillReducer from "./skillsRedux";
 import projectReducer from "./projectsRedux";
+import userReducer from "./userRedux";
+import contentReducer from "./contentRedux";
 import {
   persistStore,
   persistReducer,
@@ -22,6 +24,8 @@ const persistConfig = {
 const rootReducer = combineReducers({
   skills: skillReducer,
   project: projectReducer,
+  user: userReducer,
+  content: contentReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import getWindowDimensions from "../../../commonFunctions/Dimentions";
 import {
@@ -11,12 +11,20 @@ import {
 } from "./Forms";
 import Button from "../../../components/Button";
 import LoadingAnimation from "../../../components/LoadingAnimation";
+import { updateContent, getContent } from "../../../redux/apiCalls";
+import { useDispatch, useSelector } from "react-redux";
 
 const AdminEducation = () => {
   const { width } = getWindowDimensions();
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const content = useSelector((state) => state.content.contents);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    getContent(dispatch);
+  }, [dispatch]);
 
   const [data, setData] = useState({ education: "" });
 

@@ -1,48 +1,47 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 import Button from "../../components/Button";
-// import getWindowDimensions from "../../commonFunctions/Dimentions";
-import {Link} from "react-scroll";
+import { Link } from "react-scroll";
+import { useDispatch, useSelector } from "react-redux";
+import { getContent } from "../../redux/apiCalls";
 
 const About = () => {
-  // const { width } = getWindowDimensions();
+  const content = useSelector((state) => state.content.contents);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    getContent(dispatch);
+  }, [dispatch]);
 
   return (
-    <Container id="about" >
+    <Container id="about">
+      <Top>
+        <Image
+          src="/assets/images/johannes.png"
+          alt="johannes-hero-img"
+          data-aos="fade-up"
+        />
 
-     <Top>
-        {/* <Title>Johannes Erdahl Andresen</Title> */}
-        {/* <Logo src="/assets/logos/logo3.png" alt="hero-logo"/> */}
-
-
-        <Image src="/assets/images/johannes.png" alt="johannes-hero-img"  data-aos="fade-up"/>
-
-        <Text data-aos="fade-up">
-        Jeg er en svært motivert, sosial og pliktoppfyllende ung mann på 24 år som går mitt siste år som dataingeniørstudent ved OsloMet.
-        </Text>
+        <Text data-aos="fade-up">{content[0].heroSubTitle}</Text>
 
         <ButtonContainer data-aos="fade-up">
-        <Link
-              to="contact"
-              spy={true}
-              smooth={true}
-              offset={-100}
-              duration={300}
-            >
-              <Button
-                text="Kontakt Meg"
-                bc="color-2"
-              ></Button>{" "}
-            </Link>
-            <DownloadButton
-              href="/assets/files/Johannes-Erdahl-Andresen_CV.pdf"
-              download
-            >
-              Last ned CV
-            </DownloadButton>
+          <Link
+            to="contact"
+            spy={true}
+            smooth={true}
+            offset={-100}
+            duration={300}
+          >
+            <Button text="Kontakt Meg" bc="color-2"></Button>{" "}
+          </Link>
+          <DownloadButton
+            href="/assets/files/Johannes-Erdahl-Andresen_CV.pdf"
+            download
+          >
+            Last ned CV
+          </DownloadButton>
         </ButtonContainer>
       </Top>
-
-
     </Container>
   );
 };
@@ -50,24 +49,23 @@ const About = () => {
 export default About;
 
 const Container = styled.div`
-padding: 0 1em;
-  transition: all .3s ease;
+  padding: 0 1em;
+  transition: all 0.3s ease;
 `;
 
 const Top = styled.div`
-display: flex;
-align-items: center;
-flex-direction: column;
-text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
 `;
 
-
 const ButtonContainer = styled.div`
-display: flex;
-align-items: flex-start;
-justify-content: space-between;
-height: auto;
-min-width: 15em;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: auto;
+  min-width: 15em;
 `;
 
 // const Logo = styled.img`
@@ -75,13 +73,10 @@ min-width: 15em;
 // min-width: 30em;
 // `;
 
-
-
 // const Title = styled.h1`
 //   font-size: 2.3rem;
 //   color: #091922;
 //   transition: all .3s ease;
-
 
 //   @media (max-width: 1000px) {
 //     font-size: 1.8rem;
@@ -91,8 +86,7 @@ min-width: 15em;
 
 const Text = styled.p`
   font-size: 1.5rem;
-  transition: all .3s ease;
-
+  transition: all 0.3s ease;
 
   @media (max-width: 1000px) {
     font-size: 1.3rem;
@@ -107,14 +101,13 @@ const Text = styled.p`
 const Image = styled.img`
   min-height: 50vh;
   max-height: 60vh;
-
 `;
 
 const DownloadButton = styled.a`
   font-size: 1rem;
   font-weight: 500;
   z-index: 1;
-  border-radius: .5em;
+  border-radius: 0.5em;
   transition: all 0.3s ease;
   cursor: pointer;
   border: none;
