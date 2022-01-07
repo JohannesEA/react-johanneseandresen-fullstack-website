@@ -22,7 +22,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  skills: skillReducer,
+  skill: skillReducer,
   project: projectReducer,
   user: userReducer,
   content: contentReducer,

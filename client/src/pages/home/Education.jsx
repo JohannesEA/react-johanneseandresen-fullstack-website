@@ -12,8 +12,6 @@ const Education = () => {
 
   const arr = [edu, edu2, edu3];
 
-  console.log(arr);
-
   return (
     <Container id="education">
       <Top>

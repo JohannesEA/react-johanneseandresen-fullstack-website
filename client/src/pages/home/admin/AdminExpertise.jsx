@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import getWindowDimensions from "../../../commonFunctions/Dimentions";
 import {
@@ -11,12 +11,20 @@ import {
 } from "./Forms";
 import Button from "../../../components/Button";
 import LoadingAnimation from "../../../components/LoadingAnimation";
+import { updateSkill, getSkills } from "../../../redux/apiCalls";
+import { useDispatch, useSelector } from "react-redux";
 
 const AdminExpertise = () => {
   const { width } = getWindowDimensions();
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const skills = useSelector((state) => state.skill.skills);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    getSkills(dispatch);
+  }, [dispatch]);
 
   const [data, setData] = useState({
     title: "",
