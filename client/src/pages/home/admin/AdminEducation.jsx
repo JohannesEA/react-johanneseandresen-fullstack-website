@@ -21,23 +21,27 @@ const AdminEducation = () => {
   const [isLoading, setIsLoading] = useState(false);
   const content = useSelector((state) => state.content.contents);
   const dispatch = useDispatch();
-
   useEffect(() => {
     getContent(dispatch);
   }, [dispatch]);
 
-  const [data, setData] = useState({ education: "" });
+  const [data, setData] = useState({ education: [] });
 
   const handleChange = (e) => {
     e.preventDefault();
     let value = e.target.value;
-    let name = e.target.name;
-    setData({ ...data, [name]: value });
+    // let name = e.target.name;
+    setData({ ...content[0].education, education: value });
   };
 
   const handleClick = (e) => {
     e.preventDefault();
-    console.log(data);
+    setIsLoading(true);
+    console.log(data.education);
+    updateContent(content[0]._id, data.education, dispatch);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
   };
 
   return (
@@ -49,7 +53,7 @@ const AdminEducation = () => {
         <Input
           type="text"
           name="education"
-          placeholder="Utdannelse, sted, år.."
+          placeholder="Utdannelse.. Dataingeniør"
           onChange={handleChange}
         />
 

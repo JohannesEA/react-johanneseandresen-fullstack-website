@@ -4,16 +4,20 @@ import AdminHero from "./AdminHero";
 import AdminEducation from "./AdminEducation";
 import AdminExpertise from "./AdminExpertise";
 import AdminProjects from "./AdminProjects";
+import Navbar from "./Navbar";
+import Footer from "../../../components/Footer";
 
 const AdminHome = () => {
   const { width } = getWindowDimensions();
 
   return (
     <Container>
+      <Navbar />
       <AdminHero />
       <AdminEducation />
       <AdminExpertise />
       <AdminProjects />
+      <Footer />
     </Container>
   );
 };

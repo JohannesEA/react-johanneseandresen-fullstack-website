@@ -6,6 +6,7 @@ import {
   AiOutlineLinkedin,
 } from "react-icons/ai";
 import getWindowDimensions from "../commonFunctions/Dimentions";
+import { Link as DomLink } from "react-router-dom";
 
 const Footer = () => {
   const { width } = getWindowDimensions();
@@ -45,8 +46,21 @@ const Footer = () => {
       </Top>
 
       <Bottom>
-      johanneseandresen.no&nbsp;<AiOutlineCopyrightCircle  fontSize={15}  />&nbsp;2021
+        <BottomLeft>
+          <Text>johanneseandresen.no</Text>&nbsp;
+          <AiOutlineCopyrightCircle fontSize={15} />
+          &nbsp;<Text>2021</Text>
+        </BottomLeft>
+
+        <BottomRight>
+          {" "}
+          <DomLink to="/admin">
+            {" "}
+            <Text>Admin</Text>
+          </DomLink>
+        </BottomRight>
       </Bottom>
+      {/* <Bottom3></Bottom3> */}
     </Container>
   );
 };
@@ -68,8 +82,6 @@ const Top = styled.div`
   background-color: #032859;
   width: 100%;
   height: 42vh;
-
-
 `;
 
 const Image = styled.img`
@@ -98,7 +110,6 @@ const Right = styled.div`
 
   @media (max-width: 800px) {
     justify-content: space-between;
-
   }
 `;
 
@@ -110,6 +121,28 @@ const Bottom = styled.div`
   color: white;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+`;
+
+const BottomLeft = styled.div`
+  display: flex;
+  align-items: center;
   justify-content: center;
+  flex-direction: row;
+  margin-left: 1em;
+`;
+
+const BottomRight = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-right: 1em;
+`;
+
+const Text = styled.p`
+  color: white;
+  text-decoration: none;
   font-size: 0.8rem;
 `;

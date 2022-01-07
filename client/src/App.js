@@ -20,7 +20,6 @@ const App = () => {
   const user = useSelector((state) => state.user.currentUser);
   const content = useSelector((state) => state.content.contents);
   const dispatch = useDispatch();
-  const [test, setTest] = useState(true);
 
   useEffect(() => {
     getContent(dispatch);

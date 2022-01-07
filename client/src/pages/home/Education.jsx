@@ -1,11 +1,18 @@
 import styled from "styled-components";
-// import Button from "../../components/Button";
-// import getWindowDimensions from "../../commonFunctions/Dimentions";
+import EducationModel from "../../models/education";
 
 const Education = () => {
-  // const { width } = getWindowDimensions();
+  const edu3 = new EducationModel("Dataingeniør", "OsloMet", "2019-2022");
+  const edu = new EducationModel(
+    "Studiespesialiserende fag",
+    "Nesbru VGS",
+    "2013-2016"
+  );
+  const edu2 = new EducationModel("Førstegangstjenesten", "Trondheim", "2017");
 
+  const arr = [edu, edu2, edu3];
 
+  console.log(arr);
 
   return (
     <Container id="education">
@@ -13,11 +20,14 @@ const Education = () => {
         <Title data-aos="fade-up">Utdannelse</Title>
 
         <List>
-          <ListPoint data-aos="fade-up"> <ListItem>Studiespesialiserende fag, Nesbru VGS, Asker</ListItem></ListPoint>
-          <ListPoint data-aos="fade-up"> <ListItem>Førstegangstjenesten, Luftforsvaret </ListItem></ListPoint>
-          <ListPoint data-aos="fade-up"> <ListItem>Ingeniørfag, data, OsloMet</ListItem></ListPoint>
+          {arr.map((item, index) => (
+            <ListPoint key={index} data-aos="fade-up">
+              <ListItem>
+                {item.name}, {item.area}, {item.year}
+              </ListItem>
+            </ListPoint>
+          ))}
         </List>
-
       </Top>
     </Container>
   );
@@ -36,8 +46,6 @@ const Top = styled.div`
   align-items: center;
   flex-direction: column;
 `;
-
-
 
 const Title = styled.h1`
   font-size: 2.3rem;
@@ -58,23 +66,22 @@ const List = styled.ul`
   }
 `;
 
-const ListPoint  = styled.li`
-margin: 0px auto;
+const ListPoint = styled.li`
+  margin: 0px auto;
   list-style-type: circle;
-    color: #032859;  
-    font-size: 2rem;  
+  color: #032859;
+  font-size: 2rem;
 
-    @media (max-width: 1000px) {
+  @media (max-width: 1000px) {
     font-size: 1.8rem;
   }
 `;
 
-const ListItem  = styled.a`
-    color: black;    
-    font-size: 1.5rem;  
+const ListItem = styled.a`
+  color: black;
+  font-size: 1.5rem;
 
-    @media (max-width: 1000px) {
+  @media (max-width: 1000px) {
     font-size: 1.3rem;
   }
 `;
-
