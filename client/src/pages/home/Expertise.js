@@ -37,7 +37,7 @@ const Expertise = () => {
               <Text>{skill.title}</Text>
             </TextContainer>{" "}
             {activateAnimationOne && (
-              <FillContent bc={skill.color}>{skill.details[0]}</FillContent>
+              <FillContent bc={skill.color}>{skill.details}</FillContent>
             )}{" "}
           </AnimationTwo>
         ))}

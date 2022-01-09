@@ -1,49 +1,48 @@
-import styled, { keyframes } from "styled-components";
-import Button from "../../components/Button";
-import getWindowDimensions from "../../commonFunctions/Dimentions";
-import {IMAGES} from "../../data/data";
+import { useEffect } from "react";
+import styled from "styled-components";
+import { IMAGES } from "../../data/data";
 import ImageSlider from "../../components/Imageslider";
-
+import { useDispatch, useSelector } from "react-redux";
+import { getProject } from "../../redux/apiCalls";
 
 const Projects = () => {
-  const { width } = getWindowDimensions();
+  const dispatch = useDispatch();
+  const projects = useSelector((state) => state.project.projects);
+
+  useEffect(() => {
+    getProject(dispatch);
+  }, [dispatch]);
+
+  console.log(projects);
 
   return (
-<Container>
+    <Container>
+      <Title data-aos="fade-up">Prosjekter</Title>
 
-  <Title data-aos="fade-up">Prosjekter</Title>
-
-<ImageContainer id="projects" data-aos="fade-up">
+      <ImageContainer id="projects" data-aos="fade-up">
         <ImageSlider images={IMAGES} slidesToShow={5} />
       </ImageContainer>
-
-
-</Container>
-
+    </Container>
   );
-
 };
 
 export default Projects;
 
 const Container = styled.div`
-margin-top:5em;
-flex-direction: column;
-text-align: center;
+  margin-top: 5em;
+  flex-direction: column;
+  text-align: center;
 `;
-
 
 const ImageContainer = styled.div`
-    transition: all .3s ease;
+  transition: all 0.3s ease;
 `;
-
 
 const Title = styled.h1`
   font-size: 2.3rem;
   color: #032859;
   transition: all 0.3s ease;
-  margin-bottom:1em;
-
+  margin-bottom: 1em;
 
   @media (max-width: 1000px) {
     font-size: 1.8rem;
