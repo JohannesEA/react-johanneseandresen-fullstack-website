@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import styled from "styled-components";
-import { IMAGES } from "../../data/data";
 import ImageSlider from "../../components/Imageslider";
 import { useDispatch, useSelector } from "react-redux";
 import { getProject } from "../../redux/apiCalls";
@@ -13,14 +12,12 @@ const Projects = () => {
     getProject(dispatch);
   }, [dispatch]);
 
-  console.log(projects);
-
   return (
     <Container>
       <Title data-aos="fade-up">Prosjekter</Title>
 
       <ImageContainer id="projects" data-aos="fade-up">
-        <ImageSlider images={IMAGES} slidesToShow={5} />
+        <ImageSlider images={projects} slidesToShow={5} />
       </ImageContainer>
     </Container>
   );

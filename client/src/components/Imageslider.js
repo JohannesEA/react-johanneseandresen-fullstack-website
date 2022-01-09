@@ -25,7 +25,7 @@ const PrevArrow = ({ onClick }) => {
   );
 };
 
-const ImageSlider = ({ images, slidesToShow = 3 }) => {
+const ImageSlider = ({ images }) => {
   // 3.
   const [imageIndex, setImageIndex] = useState(0);
 
@@ -35,13 +35,12 @@ const ImageSlider = ({ images, slidesToShow = 3 }) => {
     infinite: true,
     dots: false,
     speed: 300,
-    slidesToShow: slidesToShow,
+    slidesToShow: 3,
     centerPadding: "0",
     swipeToSlide: true,
     focusOnSelect: true,
     nextArrow: <NextArrow onClick />,
     prevArrow: <PrevArrow onClick />,
-    slidesToShow: 3,
     slidesToScroll: 1,
 
     beforeChange: (current, next) => setImageIndex(next),
@@ -61,18 +60,25 @@ const ImageSlider = ({ images, slidesToShow = 3 }) => {
     return (
       <div
         className={idx === imageIndex ? "activeSlide" : "slide"}
-        key={image.id}
+        key={image._id}
       >
         <div className="slideWrapper">
           {image.code ? (
             image.code
           ) : (
-            <img className="slideimage" src={image.src} alt={image.alt} />
+            <img className="slideimage" src={image.logo} alt={image._id} />
           )}
         </div>
+        {/* <div>Type: {image.type}</div>
+        <br></br>
+        <div>Detaljer: {image.details}</div>
+        <br></br>
+        <div>Pris: {image.price} ,-</div>
+        <br></br> */}
+
         <Button
           bc="color-1"
-          onClick={() => (window.location.href = image.url)}
+          onClick={() => (window.location.href = image.link)}
           shadow="#f0f8ff"
           text="Mer Info"
         />

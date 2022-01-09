@@ -1,14 +1,6 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import getWindowDimensions from "../../../commonFunctions/Dimentions";
-import {
-  Form,
-  Input,
-  ErrorMessage,
-  ConfirmMessage,
-  ButtonContainer,
-  Label,
-} from "./Forms";
+import { Form, Input, ButtonContainer, Label } from "./Forms";
 import {
   getStorage,
   ref,
@@ -22,9 +14,6 @@ import { updateContent, getContent } from "../../../redux/apiCalls";
 import { useDispatch, useSelector } from "react-redux";
 
 const AdminHero = () => {
-  const { width } = getWindowDimensions();
-  const [error, setError] = useState(false);
-  const [success, setSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [imageIsLoading, setImageIsLoading] = useState(false);
   const content = useSelector((state) => state.content.contents);
@@ -68,6 +57,9 @@ const AdminHero = () => {
           case "running":
             setImageIsLoading(true);
             break;
+          default:
+            console.log("Defaukt");
+            break;
         }
       },
       (error) => {
@@ -84,7 +76,11 @@ const AdminHero = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     updateContent(content[0]._id, data, dispatch);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
   };
 
   return (
@@ -130,8 +126,6 @@ const AdminHero = () => {
         </ButtonContainer>
 
         {isLoading && <LoadingAnimation />}
-        {error && <ErrorMessage>Error</ErrorMessage>}
-        {success && <ConfirmMessage>Success</ConfirmMessage>}
       </Form>
     </Container>
   );

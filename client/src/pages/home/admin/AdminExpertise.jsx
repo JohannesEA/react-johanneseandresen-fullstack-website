@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import getWindowDimensions from "../../../commonFunctions/Dimentions";
 import {
   Form,
   Input,
@@ -12,14 +11,12 @@ import {
 import Button from "../../../components/Button";
 import LoadingAnimation from "../../../components/LoadingAnimation";
 import { addSkill, getSkills } from "../../../redux/apiCalls";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const AdminExpertise = () => {
-  const { width } = getWindowDimensions();
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const skills = useSelector((state) => state.skill.skills);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -50,13 +47,16 @@ const AdminExpertise = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     if (validateInputs(data.title, data.details, data.grade, data.color)) {
       addSkill(data, dispatch);
       setSuccess(true);
       setError(false);
     }
-    console.log(data);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
     setError(true);
     setSuccess(false);
   };

@@ -1,14 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import getWindowDimensions from "../../../commonFunctions/Dimentions";
-import {
-  Form,
-  Input,
-  ErrorMessage,
-  ConfirmMessage,
-  ButtonContainer,
-  Label,
-} from "./Forms";
+import { Form, Input, ButtonContainer, Label } from "./Forms";
 import {
   getStorage,
   ref,
@@ -18,13 +10,13 @@ import {
 import app from "../../../firebase";
 import Button from "../../../components/Button";
 import LoadingAnimation from "../../../components/LoadingAnimation";
+import { addProject } from "../../../redux/apiCalls";
+import { useDispatch } from "react-redux";
 
 const AdminHero = () => {
-  const { width } = getWindowDimensions();
-  const [error, setError] = useState(false);
-  const [success, setSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [imageIsLoading, setImageIsLoading] = useState(false);
+  const dispatch = useDispatch();
 
   const [data, setData] = useState({
     title: "",
@@ -63,6 +55,9 @@ const AdminHero = () => {
           case "running":
             setImageIsLoading(true);
             break;
+          default:
+            console.log("Default");
+            break;
         }
       },
       (error) => {
@@ -79,10 +74,11 @@ const AdminHero = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    const imgName = new Date().getTime + data.img[0];
-    const logoName = new Date().getTime + data.logo;
-
-    console.log(data);
+    setIsLoading(true);
+    addProject(data, dispatch);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
   };
 
   return (
@@ -148,8 +144,6 @@ const AdminHero = () => {
         </ButtonContainer>
 
         {isLoading && <LoadingAnimation />}
-        {error && <ErrorMessage>Error</ErrorMessage>}
-        {success && <ConfirmMessage>Success</ConfirmMessage>}
       </Form>
     </Container>
   );
