@@ -9,7 +9,7 @@ const Navbar = () => {
 
   return (
     <Container>
-      <Link to="hero" spy={true} smooth={true} offset={-100} duration={300}>
+      <Link to="hero">
         <MenuLogoText>JEA</MenuLogoText>
       </Link>
 

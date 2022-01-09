@@ -1,44 +1,31 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import getWindowDimensions from "../../../commonFunctions/Dimentions";
-import {
-  Form,
-  Input,
-  ErrorMessage,
-  ConfirmMessage,
-  ButtonContainer,
-  Label,
-} from "./Forms";
+import { Form, Input, ButtonContainer, Label } from "./Forms";
 import Button from "../../../components/Button";
 import LoadingAnimation from "../../../components/LoadingAnimation";
-import { updateContent, getContent } from "../../../redux/apiCalls";
-import { useDispatch, useSelector } from "react-redux";
+import { addEducation, getEducation } from "../../../redux/apiCalls";
+import { useDispatch } from "react-redux";
 
 const AdminEducation = () => {
-  const { width } = getWindowDimensions();
-  const [error, setError] = useState(false);
-  const [success, setSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const content = useSelector((state) => state.content.contents);
   const dispatch = useDispatch();
   useEffect(() => {
-    getContent(dispatch);
+    getEducation(dispatch);
   }, [dispatch]);
 
-  const [data, setData] = useState({ education: [] });
+  const [data, setData] = useState({ title: "", area: "", year: "" });
 
   const handleChange = (e) => {
     e.preventDefault();
     let value = e.target.value;
-    // let name = e.target.name;
-    setData({ ...content[0].education, education: value });
+    let name = e.target.name;
+    setData({ ...data, [name]: value });
   };
 
   const handleClick = (e) => {
     e.preventDefault();
     setIsLoading(true);
-    console.log(data.education);
-    updateContent(content[0]._id, data.education, dispatch);
+    addEducation(data, dispatch);
     setTimeout(() => {
       setIsLoading(false);
     }, 2000);
@@ -52,8 +39,21 @@ const AdminEducation = () => {
         <Label>Utdannelse</Label>
         <Input
           type="text"
-          name="education"
-          placeholder="Utdannelse.. Dataingeniør"
+          name="title"
+          placeholder="Studiespesialiserende fag.."
+          onChange={handleChange}
+        />
+        <Input
+          type="text"
+          name="area"
+          placeholder="Nesbru vgs.."
+          onChange={handleChange}
+        />
+
+        <Input
+          type="text"
+          name="year"
+          placeholder="2013-2016.."
           onChange={handleChange}
         />
 
@@ -62,8 +62,6 @@ const AdminEducation = () => {
         </ButtonContainer>
 
         {isLoading && <LoadingAnimation />}
-        {error && <ErrorMessage>Error</ErrorMessage>}
-        {success && <ConfirmMessage>Success</ConfirmMessage>}
       </Form>
     </Container>
   );

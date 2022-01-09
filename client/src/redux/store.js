@@ -3,6 +3,7 @@ import skillReducer from "./skillsRedux";
 import projectReducer from "./projectsRedux";
 import userReducer from "./userRedux";
 import contentReducer from "./contentRedux";
+import educationReducer from "./educationRoute";
 import {
   persistStore,
   persistReducer,
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
   project: projectReducer,
   user: userReducer,
   content: contentReducer,
+  education: educationReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

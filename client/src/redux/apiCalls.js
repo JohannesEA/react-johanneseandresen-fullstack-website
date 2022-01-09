@@ -6,9 +6,6 @@ import {
   deleteProjectStart,
   deleteProjectSuccess,
   deleteProjectFailure,
-  resetProjectStart,
-  resetProjectSuccess,
-  resetProjectFailure,
   addProjectStart,
   addProjectSuccess,
   addProjectFailure,
@@ -23,9 +20,6 @@ import {
   deleteSkillStart,
   deleteSkillSuccess,
   deleteSkillFailure,
-  resetSkillStart,
-  resetSkillSuccess,
-  resetSkillFailure,
   updateSkillStart,
   updateSkillSuccess,
   updateSkillFailure,
@@ -44,7 +38,17 @@ import {
   updateContentStart,
   updateContentSuccess,
 } from "./contentRedux";
-
+import {
+  getEducationStart,
+  getEducationSuccess,
+  getEducationFailure,
+  addEducationStart,
+  addEducationSuccess,
+  addEducationFail,
+  updateEducationStart,
+  updateEducationSuccess,
+  updateEducationFailure,
+} from "./educationRoute";
 import { loginFailure, loginStart, loginSuccess } from "./userRedux";
 
 export const login = async (dispatch, user) => {
@@ -168,5 +172,37 @@ export const updateContent = async (id, content, dispatch) => {
     dispatch(updateContentSuccess({ id, content }));
   } catch (err) {
     dispatch(updateContentFailure());
+  }
+};
+
+export const getEducation = async (dispatch) => {
+  dispatch(getEducationStart());
+  try {
+    const res = await publicRequest.get("api/education");
+    dispatch(getEducationSuccess(res.data));
+  } catch (err) {
+    dispatch(getEducationFailure());
+  }
+};
+
+export const addEducation = async (content, dispatch) => {
+  dispatch(addEducationStart());
+  try {
+    const res = await userRequest.post(`api/education`, content);
+    dispatch(addEducationSuccess(res.data));
+  } catch (err) {
+    dispatch(addEducationFail());
+  }
+};
+
+export const updateEducation = async (id, content, dispatch) => {
+  dispatch(updateEducationStart());
+  try {
+    // update
+    const res = await userRequest.put(`api/education/${id}`, content);
+    console.log(res.data);
+    dispatch(updateEducationSuccess({ id, content }));
+  } catch (err) {
+    dispatch(updateEducationFailure());
   }
 };
