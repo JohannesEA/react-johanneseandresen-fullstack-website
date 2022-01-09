@@ -1,16 +1,16 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 import EducationModel from "../../models/education";
+import { useDispatch, useSelector } from "react-redux";
+import { getEducation } from "../../redux/apiCalls";
 
 const Education = () => {
-  const edu3 = new EducationModel("Dataingeniør", "OsloMet", "2019-2022");
-  const edu = new EducationModel(
-    "Studiespesialiserende fag",
-    "Nesbru VGS",
-    "2013-2016"
-  );
-  const edu2 = new EducationModel("Førstegangstjenesten", "Trondheim", "2017");
+  const educations = useSelector((state) => state.education.educations);
+  const dispatch = useDispatch();
 
-  const arr = [edu, edu2, edu3];
+  useEffect(() => {
+    getEducation(dispatch);
+  }, [dispatch]);
 
   return (
     <Container id="education">
@@ -18,10 +18,10 @@ const Education = () => {
         <Title data-aos="fade-up">Utdannelse</Title>
 
         <List>
-          {arr.map((item, index) => (
+          {educations.map((item, index) => (
             <ListPoint key={index} data-aos="fade-up">
               <ListItem>
-                {item.name}, {item.area}, {item.year}
+                {item.title}, {item.area}, {item.year}
               </ListItem>
             </ListPoint>
           ))}

@@ -1,19 +1,42 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Form, Input, ButtonContainer, Label } from "./Forms";
+import {
+  Form,
+  Input,
+  ButtonContainer,
+  Label,
+  ErrorMessage,
+  ConfirmMessage,
+} from "./Forms";
 import Button from "../../../components/Button";
 import LoadingAnimation from "../../../components/LoadingAnimation";
 import { addEducation, getEducation } from "../../../redux/apiCalls";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const AdminEducation = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const educationUploadError = useSelector(
+    (state) => state.education.educations
+  );
   const dispatch = useDispatch();
+  const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
+
   useEffect(() => {
     getEducation(dispatch);
   }, [dispatch]);
 
   const [data, setData] = useState({ title: "", area: "", year: "" });
+
+  const validateInputs = (title, area, year) => {
+    if (title.length < 1 || area.length < 1 || year.length < 1) {
+      setError(true);
+      return false;
+    } else {
+      setError(false);
+      return true;
+    }
+  };
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -24,11 +47,18 @@ const AdminEducation = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    setIsLoading(true);
-    addEducation(data, dispatch);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
+    if (validateInputs(data.title, data.area, data.year)) {
+      setIsLoading(true);
+      addEducation(data, dispatch);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
+
+      if (educationUploadError) {
+        setError(true);
+      }
+      setSuccess(true);
+    }
   };
 
   return (
@@ -62,6 +92,8 @@ const AdminEducation = () => {
         </ButtonContainer>
 
         {isLoading && <LoadingAnimation />}
+        {error && <ErrorMessage>Uploading failed..</ErrorMessage>}
+        {success && <ConfirmMessage>Uploading success!</ConfirmMessage>}
       </Form>
     </Container>
   );
