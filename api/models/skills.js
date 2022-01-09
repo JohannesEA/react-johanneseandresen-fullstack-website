@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const SkillSchema = new mongoose.Schema(
   {
     title: { type: String, required: false, unique: true },
-    details: { type: Array, require: false },
+    details: { type: String, require: false },
     grade: { type: String, required: false },
     color: { type: String, required: false },
   },

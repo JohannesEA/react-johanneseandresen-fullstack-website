@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import { useState, useEffect } from "react";
 import getWindowDimensions from "../../commonFunctions/Dimentions";
-import { updateSkill, getSkills } from "../../redux/apiCalls";
+import { getSkills } from "../../redux/apiCalls";
 import { useDispatch, useSelector } from "react-redux";
 
 const Expertise = () => {

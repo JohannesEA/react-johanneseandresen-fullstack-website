@@ -11,7 +11,7 @@ import {
 } from "./Forms";
 import Button from "../../../components/Button";
 import LoadingAnimation from "../../../components/LoadingAnimation";
-import { updateSkill, getSkills } from "../../../redux/apiCalls";
+import { addSkill, getSkills } from "../../../redux/apiCalls";
 import { useDispatch, useSelector } from "react-redux";
 
 const AdminExpertise = () => {
@@ -33,6 +33,14 @@ const AdminExpertise = () => {
     color: "",
   });
 
+  const validateInputs = (title, details, grade, color) => {
+    if (title === "" || grade === "" || color === "") {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
   const handleChange = (e) => {
     e.preventDefault();
     let value = e.target.value;
@@ -42,7 +50,15 @@ const AdminExpertise = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
+
+    if (validateInputs(data.title, data.details, data.grade, data.color)) {
+      addSkill(data, dispatch);
+      setSuccess(true);
+      setError(false);
+    }
     console.log(data);
+    setError(true);
+    setSuccess(false);
   };
 
   return (
