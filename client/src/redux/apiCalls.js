@@ -67,6 +67,9 @@ export const getSkills = async (dispatch) => {
   getSkillStart(dispatch);
   try {
     const res = await publicRequest.get("api/skills");
+    res.data.sort((a, b) =>
+      a.grade < b.grade ? 1 : b.grade < a.grade ? -1 : 0
+    );
     dispatch(getSkillSuccess(res.data));
   } catch (err) {
     dispatch(getSkillFailure());

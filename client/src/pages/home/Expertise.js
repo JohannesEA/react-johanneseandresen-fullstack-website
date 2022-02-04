@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Expertise = () => {
   const [activateAnimationOne, setActivateAnimationOne] = useState(false);
+  const [expertiseList, setExpertiseList] = useState([]);
+
   const { width } = getWindowDimensions();
 
   const skills = useSelector((state) => state.skill.skills);
@@ -14,6 +16,17 @@ const Expertise = () => {
   useEffect(() => {
     getSkills(dispatch);
   }, [dispatch]);
+
+  // useEffect(() => {
+  //   const updateSkillList = () => {
+  //     skills.forEach((skill) => {
+  //       console.log(skill);
+  //       if(item.grade )
+  //     });
+  //   };
+
+  //   updateSkillList();
+  // }, []);
 
   const activateAnimations = () => {
     if (width > 400 && window.scrollY >= 580) {
@@ -38,7 +51,7 @@ const Expertise = () => {
             </TextContainer>{" "}
             {activateAnimationOne && (
               <FillContent bc={skill.color}>{skill.details}</FillContent>
-            )}{" "}
+            )}
           </AnimationTwo>
         ))}
       </AnimationBox>

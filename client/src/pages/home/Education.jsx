@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import styled from "styled-components";
-import EducationModel from "../../models/education";
 import { useDispatch, useSelector } from "react-redux";
 import { getEducation } from "../../redux/apiCalls";
 
